@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN" "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<faces-config >
+     <navigation-rule>
+	<from-view-id>/index.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/resultforsuccess.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>failure</from-outcome>
+			<to-view-id>/resultforfail.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+        <managed-bean>
+		<managed-bean-name>UserInfoBean</managed-bean-name>
+		<managed-bean-class>com.edumet.UserInfoBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userName</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>user</value>
+		</managed-property>
+		<managed-property>
+			<property-name>password</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>pass</value>
+		</managed-property>
+	</managed-bean>
+        <managed-bean>
+		<managed-bean-name>RetrievePasswordBean</managed-bean-name>
+		<managed-bean-class>com.edumet.RetrievePasswordBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>username</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>user</value>
+		</managed-property>
+		 
+	</managed-bean>
+</faces-config>
