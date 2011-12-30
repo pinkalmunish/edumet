@@ -5,54 +5,41 @@
     <link rel="stylesheet" type="text/css" href="css/edumet.css" media="screen"/>
     <body bgcolor="#E0FFFF" title="Edumet Employee Web Portal">
         <f:view>
-            <table bgcolor="#E0FFFF" class="center">
-                  <tr><td><h1>Employee Portal Login </h1></td></tr>
-            </table>
-            <h:panelGrid width="100%"  bgcolor="E0FFFF">
+            <div id="header2">
+                <h1>Employee Portal Login</h1>
+            </div>
+            <h:panelGrid width="100%" bgcolor="#E0FFFF">
                 <h:form>
                     <f:facet name="header">
                         <h:outputText value="Login Panel"/>
                     </f:facet>
-                    <!--          <table width="1500" align="center" cellpadding="0" cellspacing="1" bgcolor="#E0FFFF"
-                           class="center">
-                        <tbody>
-                           <tr>
-                                <td width="397" bgcolor="#E0FFFF">
-                                     <div>
-                                        <img src="images/edumet.jpg" width="1000" height="40" align="absmiddle"></img>
-                                    </div> 
-                                </td>
-                            </tr> 
-                        </tbody>
-                    </table> -->
-                    <table bgcolor="#E0FFFF" class="center">
-                        <tbody>
-                            <tr>
-                                <td width="100%" bgcolor="#E0FFFF">
-                                    <h:outputText value="Username "/>
-                                     
-                                    <h:inputText id="username" value="#{UserInfoBean.userName}" styleclass="inputbox"/>
-                                     
-                                    <h:outputText value=""/>
-                                     
-                                    <h:message for="username" styleclass="errors"></h:message>
-                                     
-                                    <h:outputText value="Password "/>
-                                     
-                                    <h:inputSecret id="password" value="#{UserInfoBean.password}"
-                                                   styleclass="inputbox"/>
-                                     
-                                    <h:outputText value=""/>
-                                     
-                                    <h:message for="password" styleclass="errors"/>
-                                     
-                                    <h:commandButton value="Login" action="#{UserInfoBean.SimpleAuthenticateUser}"
-                                                     styleclass="submitButton"/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a href="ForgottenUserName.faces">Forgotten Username</a>
+                    <div id="maincontainer">
+                        <div>
+                            <h:outputText value="Username "/>
+                             
+                            <h:inputText id="username" value="#{UserInfoBean.userName}" styleclass="inputbox"/>
+                             
+                            <h:outputText value=""/>
+                             
+                            <h:message for="username" styleclass="errors"></h:message>
+                        </div>
+                        <div>
+                            <h:outputText value="Password "/>
+                             
+                            <h:inputSecret id="password" value="#{UserInfoBean.password}" styleclass="inputbox"/>
+                             
+                            <h:outputText value=""/>
+                             
+                            <h:message for="password" styleclass="errors"/>
+                        </div>
+                        <div>
+                            <h:commandButton value="Login" action="#{UserInfoBean.SimpleAuthenticateUser}"
+                                             styleclass="submitButton"/>
+                        </div>
+                    </div>
+                    <div id="footer">
+                        <a href="ForgottenUserName.faces">Forgotten Password?</a>
+                    </div>
                 </h:form>
             </h:panelGrid>
         </f:view>
