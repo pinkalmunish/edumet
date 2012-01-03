@@ -3,6 +3,8 @@ package com.edumet;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -52,22 +54,15 @@ public class UserInfoBean {
 
     public String SimpleAuthenticateUser() {
 
-        try {
-            ResultSet rs =
-                DBConnector.getConnection().createStatement().executeQuery("select * from portal_user p where p.username = '" +
-                                                                           userName + "' and p.password =  '" +
-                                                                           password + "'");
-            while (rs.next()) {
-                return "success";
-            }
-        } catch (SQLException sqle) {
-            // TODO: Add catch code
-            sqle.printStackTrace();
-        } finally {
 
+        List rs =
+            DBConnector.getConnection().queryForList("select * from portal_user p where p.username = '" + userName +
+                                                     "' and p.password =  '" + password + "'");
+        if (!rs.isEmpty()) {
+            return "success";
         }
-        FacesContext.getCurrentInstance().addMessage("loginForm",
-                                                     new FacesMessage("Username/Password is incorrect"));
+
+        FacesContext.getCurrentInstance().addMessage("loginForm", new FacesMessage("Username/Password is incorrect"));
 
 
         return "failure";

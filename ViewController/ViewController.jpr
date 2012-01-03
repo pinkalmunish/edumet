@@ -279,6 +279,10 @@
             <value n="id" v="Java EE 1.5"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Commons-dbcp.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -462,6 +466,24 @@
                <value n="id" v="Richfaces-ui-3.1.4.GA.jar"/>
                <value n="locked" v="true"/>
             </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../libs/commons-dbcp.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Commons-dbcp.jar"/>
+               <value n="id" v="Commons-dbcp.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../libs/commons-pool.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Commons-pool.jar"/>
+               <value n="id" v="Commons-pool.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
          </list>
       </hash>
       <list n="libraryReferences">
@@ -563,6 +585,14 @@
          </hash>
          <hash>
             <value n="id" v="Java EE 1.5"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons-dbcp.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons-pool.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

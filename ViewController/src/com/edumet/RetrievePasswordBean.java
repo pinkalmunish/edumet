@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -21,6 +23,8 @@ import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import org.springframework.jdbc.core.JdbcTemplate;
 
 
 public class RetrievePasswordBean {
@@ -57,13 +61,13 @@ public class RetrievePasswordBean {
         }
         updateTableWithNewPass(newPass);
         //sendEmail(newPass);
-        
+
         return "success";
 
     }
-    
+
     private void sendEmail(String newPass) throws NamingException, AddressException, NoSuchProviderException,
-                                         MessagingException{
+                                                  MessagingException {
         javax.naming.InitialContext ctx = new javax.naming.InitialContext();
 
         javax.mail.Session mail_session = (javax.mail.Session)ctx.lookup("EdumetMail");
@@ -99,42 +103,20 @@ public class RetrievePasswordBean {
     }
 
     private boolean updateTableWithNewPass(String newPass) {
-        Connection conn = DBConnector.getConnection();
-        try {
-            conn.createStatement().execute("update portal_user p set p.password = '" + newPass +
-                                           "' where p.username = '" + username + "'");
-            conn.commit();
+        JdbcTemplate conn = DBConnector.getConnection();
+        conn.execute("update portal_user p set p.password = '" + newPass + "' where p.username = '" + username + "'");
 
-        } catch (SQLException se) {
-            return false;
-        } finally {
-            try {
-                conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        }
         return true;
     }
 
     private boolean usernameExists() {
-        Connection conn = DBConnector.getConnection();
-        try {
-            ResultSet rs = conn.createStatement().executeQuery("select * from portal_user p where p.username = '"+username+"'");
-            if(rs.next()){
-                return true;
-            }
-           
+        JdbcTemplate conn = DBConnector.getConnection();
 
-        } catch (SQLException se) {
-            return false;
-        } finally {
-            try {
-                conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
+        List rs = conn.queryForList("select * from portal_user p where p.username = '" + username + "'");
+        if (!rs.isEmpty()) {
+            return true;
         }
+
         return false;
     }
 

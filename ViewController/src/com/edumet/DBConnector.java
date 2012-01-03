@@ -1,7 +1,16 @@
 package com.edumet;
 
+import com.edumet.config.EdumetDAO;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+
+import java.sql.SQLException;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 public class DBConnector {
 
@@ -11,21 +20,19 @@ public class DBConnector {
     static String userName = "edumet";
     static String password = "edumet";
 
+    private static ApplicationContext context =
+        new FileSystemXmlApplicationContext("file:/Users/pinkalshah/edumet/ViewController/public_html/WEB-INF/applicationContext.xml");
+    private static EdumetDAO edumetDAO = (EdumetDAO)context.getBean("EdumetDAO");
+    private static JdbcTemplate jdbcTemplate = new JdbcTemplate(edumetDAO.getDataSource());
+
     public DBConnector() {
         super();
     }
 
-    public static Connection getConnection() {
-        Connection conn = null;
-        try {
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
-            System.out.println("Connected to the database");
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return conn;
+    public static JdbcTemplate getConnection() {
+
+        return jdbcTemplate;
+
 
     }
 }
