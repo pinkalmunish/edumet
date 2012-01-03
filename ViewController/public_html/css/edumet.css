@@ -57,5 +57,23 @@ h3 {
     color: red;
     /*font-family: New Century Schoolbook, serif;*/
     font-style:normal;
+    position: relative;
     
 }
+
+.inputbox {
+    border: 1px solid #006;
+    background: #ffc;
+}
+.submitButton1 {
+    border: 1px solid #006;
+    background: #9cf;
+}
+label {
+    display: block;
+    width: 150px;
+    float: left;
+    margin: 2px 4px 6px 4px;
+    text-align: right;
+}
+br { clear: left; }

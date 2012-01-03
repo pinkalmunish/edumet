@@ -17,28 +17,32 @@
                         <div class="errors">
                             <h:message for="loginForm" style="errors"/>
                         </div>
-                        
                         <div>
                             <h:outputText value="Username "/>
                              
-                            <h:inputText id="username" value="#{UserInfoBean.userName}" style="inputbox"/>
+                            <h:inputText id="username" value="#{UserInfoBean.userName}" styleclass="inputbox"/>
                              
                             <h:outputText value=""/>
+                             
+                            <h:message for="username" styleclass="errors"></h:message>
                         </div>
                         <div>
                             <h:outputText value="Password "/>
                              
-                            <h:inputSecret id="password" value="#{UserInfoBean.password}" style="inputbox"/>
+                            <h:inputSecret id="password" value="#{UserInfoBean.password}" styleclass="inputbox"/>
                              
                             <h:outputText value=""/>
+                             
+                            <h:message for="password" styleclass="errors"/>
                         </div>
                         <div>
                             <h:commandButton value="Login" action="#{UserInfoBean.SimpleAuthenticateUser}"
-                                             style="submitButton"/>
+                                             styleclass="submitButton"/>
                         </div>
                     </div>
                     <div id="footer">
-                        <a href="ForgottenUserName.faces">Forgotten Password?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="HelpDoc.pdf">Help</a>
+                        <a href="ForgottenUserName.faces">Forgotten Password?</a>
+                        &nbsp;&nbsp;<a href="help.pdf">Help</a>
                     </div>
                 </h:form>
             </h:panelGrid>

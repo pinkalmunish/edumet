@@ -9,23 +9,30 @@
                 <head>
                     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
                 </head>
-                <h:panelGrid width="100%" bgcolor="#E0FFFF">
+                <div id="header2">
+                    <h1>Retrieve Password</h1>
+                </div>
+<h:panelGrid width="100%" bgcolor="#E0FFFF">
                     <h:form id="forgottenUserNameForm">
                         <div id="maincontainer">
                             <h:message for="forgottenUserNameForm" styleclass="errors"/>
-                             
-                            <label>
-                                Enter Email address
-                                <h:inputText id="username" value="#{RetrievePasswordBean.username}"
-                                             styleclass="inputbox"/>
-                            </label>
+                            <div>
+                                <div>
+                                    <label>Enter Email address</label>
+                                </div>
+                                <div>
+                                    <h:inputText id="username" value="#{RetrievePasswordBean.username}"
+                                                 styleclass="inputbox"/>
+                                </div>
+                            </div>
                             <div>
                                 <h:commandButton value="Submit" action="#{RetrievePasswordBean.emailPassword}"
                                                  styleclass="submitButton"/>
-                                                 &nbsp;&nbsp;<h:commandButton value="Back" action="index.jsp"
-                                                 styleclass="submitButton"/>
+                                 &nbsp;&nbsp;<h:commandButton value="Back" action="index.jsp"
+                                                              styleclass="submitButton"/>
                             </div>
                         </div>
+
                     </h:form>
                 </h:panelGrid>
             </html>
