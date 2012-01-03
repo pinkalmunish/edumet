@@ -10,7 +10,7 @@
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>failure</from-outcome>
-			<to-view-id>/resultforfail.jsp</to-view-id>
+			<to-view-id>/index.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
         <managed-bean>
@@ -39,4 +39,15 @@
 		</managed-property>
 		 
 	</managed-bean>
+ <navigation-rule>
+  <from-view-id>/ForgottenUserName.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>success</from-outcome>
+   <to-view-id>/PasswordEmailed.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>failure</from-outcome>
+   <to-view-id>/ForgottenUserName.jsp</to-view-id>
+  </navigation-case>
+ </navigation-rule>
 </faces-config>

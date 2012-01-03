@@ -3,6 +3,9 @@ package com.edumet;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 public class UserInfoBean {
 
     private String userName;
@@ -63,6 +66,10 @@ public class UserInfoBean {
         } finally {
 
         }
+        FacesContext.getCurrentInstance().addMessage("loginForm",
+                                                     new FacesMessage("Username/Password is incorrect"));
+
+
         return "failure";
     }
 

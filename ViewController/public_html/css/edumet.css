@@ -30,10 +30,10 @@ h3 {
     position: relative;
     top: 165px;
     left: 550px;
-     height:75%; 
-    width:50%; 
+    height: 75%;
+    width: 50%;
     background-color: #E0FFFF;
-    color: #000000;   
+    color: #000000;
 }
 
 #header2 {
@@ -44,11 +44,18 @@ h3 {
     background-color: #E0FFFF;
     color: #000000;
 }
-#footer{
-    position:relative;
-    top:200px;
-    left:560px;
-    width:100%;
+
+#footer {
+    position: relative;
+    top: 200px;
+    left: 560px;
+    width: 100%;
     background-color: #E0FFFF;
+}
+
+.errors {
+    color: red;
+    /*font-family: New Century Schoolbook, serif;*/
+    font-style:normal;
     
 }

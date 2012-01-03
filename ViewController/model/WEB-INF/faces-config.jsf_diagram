@@ -3,50 +3,31 @@
    <OverallProperties
       id="OverallProperties1">
       <property
-         name="linkStyle">Direct</property>
+         name="linkStyle">Orthogonal</property>
+      <property
+         name="y">584.89844</property>
+      <property
+         name="x">111.74805</property>
    </OverallProperties>
    <Page
       id="Page9">
       <property
          name="wildcard">false</property>
       <property
-         name="y">-70.06641</property>
+         name="y">417.76562</property>
       <property
-         name="x">-86.0</property>
+         name="x">111.74805</property>
       <property
          name="jspName">/index.jsp</property>
    </Page>
-   <Page
-      id="Page10">
-      <property
-         name="wildcard">false</property>
-      <property
-         name="y">116.93359</property>
-      <property
-         name="x">-150.0</property>
-      <property
-         name="jspName">/resultforfail.jsp</property>
-   </Page>
-   <NavigationCase
-      islink="true"
-      id="NavigationCase11"
-      from="Page9"
-      to="Page10">
-      <property
-         name="fromOutcome">failure</property>
-      <property
-         name="description">Navigation Case</property>
-      <property
-         name="sdm:polyPoints">B50,-86.0,-16.132812,-150.0,62.867188,T50</property>
-   </NavigationCase>
    <Page
       id="Page12">
       <property
          name="wildcard">false</property>
       <property
-         name="y">40.28125</property>
+         name="y">382.23242</property>
       <property
-         name="x">372.0</property>
+         name="x">324.49512</property>
       <property
          name="jspName">/resultforsuccess.jsp</property>
    </Page>
@@ -60,6 +41,64 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">R50,-45.0,-70.13281,331.0,40.214844,L50</property>
+         name="sdm:polyPoints">R50,218.12158,417.69922,218.12158,382.16602,L50</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase7"
+      from="Page9"
+      to="Page9">
+      <property
+         name="fromOutcome">failure</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">T44,108.24805,363.69922,115.24805,363.69922,T56</property>
+   </NavigationCase>
+   <Page
+      id="Page8">
+      <property
+         name="wildcard">false</property>
+      <property
+         name="y">74.36719</property>
+      <property
+         name="x">-221.58527</property>
+      <property
+         name="jspName">/ForgottenUserName.jsp</property>
+   </Page>
+   <Page
+      id="Page10">
+      <property
+         name="wildcard">false</property>
+      <property
+         name="y">83.50001</property>
+      <property
+         name="x">111.74805</property>
+      <property
+         name="jspName">/PasswordEmailed.jsp</property>
+   </Page>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase11"
+      from="Page8"
+      to="Page10">
+      <property
+         name="fromOutcome">success</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">R50,-54.91861,74.30078,-54.91861,83.4336,L50</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase12"
+      from="Page8"
+      to="Page8">
+      <property
+         name="fromOutcome">failure</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">T44,-225.08527,20.300781,-218.08527,20.300781,T56</property>
    </NavigationCase>
 </SDM>

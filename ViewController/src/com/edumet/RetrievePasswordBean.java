@@ -9,7 +9,11 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import javax.naming.*;
 
@@ -41,12 +45,25 @@ public class RetrievePasswordBean {
     }
 
 
-    public void emailPassword() throws NamingException, AddressException, NoSuchProviderException, MessagingException {
+    public String emailPassword() throws NamingException, AddressException, NoSuchProviderException,
+                                         MessagingException {
 
         String newPass = getRandomString();
+        if (!usernameExists()) {
+            FacesContext.getCurrentInstance().addMessage("forgottenUserNameForm",
+                                                         new FacesMessage("Could not find such username"));
+
+            return "failure";
+        }
         updateTableWithNewPass(newPass);
+        //sendEmail(newPass);
+        
+        return "success";
 
-
+    }
+    
+    private void sendEmail(String newPass) throws NamingException, AddressException, NoSuchProviderException,
+                                         MessagingException{
         javax.naming.InitialContext ctx = new javax.naming.InitialContext();
 
         javax.mail.Session mail_session = (javax.mail.Session)ctx.lookup("EdumetMail");
@@ -73,7 +90,6 @@ public class RetrievePasswordBean {
         f.appendMessages(new Message[] { msg });
 
         Transport.send(msg);
-
     }
 
     private String getRandomString() {
@@ -82,7 +98,7 @@ public class RetrievePasswordBean {
 
     }
 
-    private void updateTableWithNewPass(String newPass) {
+    private boolean updateTableWithNewPass(String newPass) {
         Connection conn = DBConnector.getConnection();
         try {
             conn.createStatement().execute("update portal_user p set p.password = '" + newPass +
@@ -90,7 +106,7 @@ public class RetrievePasswordBean {
             conn.commit();
 
         } catch (SQLException se) {
-            se.printStackTrace();
+            return false;
         } finally {
             try {
                 conn.close();
@@ -98,6 +114,28 @@ public class RetrievePasswordBean {
                 se.printStackTrace();
             }
         }
+        return true;
+    }
+
+    private boolean usernameExists() {
+        Connection conn = DBConnector.getConnection();
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("select * from portal_user p where p.username = '"+username+"'");
+            if(rs.next()){
+                return true;
+            }
+           
+
+        } catch (SQLException se) {
+            return false;
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        return false;
     }
 
 
