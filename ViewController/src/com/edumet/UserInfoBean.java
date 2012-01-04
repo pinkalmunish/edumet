@@ -62,7 +62,7 @@ public class UserInfoBean {
             return "success";
         }
 
-        FacesContext.getCurrentInstance().addMessage("loginForm", new FacesMessage("Username/Password is incorrect"));
+        FacesContext.getCurrentInstance().addMessage("login", new FacesMessage("Username/Password is incorrect"));
 
 
         return "failure";

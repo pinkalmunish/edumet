@@ -21,7 +21,7 @@ public class DBConnector {
     static String password = "edumet";
 
     private static ApplicationContext context =
-        new FileSystemXmlApplicationContext("file:/Users/pinkalshah/edumet/ViewController/public_html/WEB-INF/applicationContext.xml");
+        new FileSystemXmlApplicationContext("file:/Users/pinkalshah/edumetweb/edumet/ViewController/public_html/WEB-INF/applicationContext.xml");
     private static EdumetDAO edumetDAO = (EdumetDAO)context.getBean("EdumetDAO");
     private static JdbcTemplate jdbcTemplate = new JdbcTemplate(edumetDAO.getDataSource());
 
