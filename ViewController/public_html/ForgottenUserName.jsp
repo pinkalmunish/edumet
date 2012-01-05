@@ -25,7 +25,7 @@
                         <button type="submit">submit</button>
                     </div>
                     <div class="submit">
-                        <h:commandLink value="Login" action="index.jsp"/>
+                        <h:commandLink value="Login" action="loginMain.jsp"/>
                     </div>
                 </div>
             </h:form>

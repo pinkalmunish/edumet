@@ -34,7 +34,7 @@
                         <h:commandLink value="Reports"/>
                     </div>
                     <p class="back">
-                        <h:commandLink value="Logout" action="index.jsp"></h:commandLink>
+                        <h:commandLink value="Logout" action="loginMain.jsp"></h:commandLink>
                     </p>
                 </div>
             </h:form>
