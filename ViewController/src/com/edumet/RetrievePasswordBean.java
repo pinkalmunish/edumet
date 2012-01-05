@@ -54,7 +54,7 @@ public class RetrievePasswordBean {
 
         String newPass = getRandomString();
         if (!usernameExists()) {
-            FacesContext.getCurrentInstance().addMessage("forgottenUserNameForm",
+            FacesContext.getCurrentInstance().addMessage("forgottenPass",
                                                          new FacesMessage("Could not find such username"));
 
             return "failure";

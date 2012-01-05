@@ -1,7 +1,7 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0" xmlns:f="http://java.sun.com/jsf/core"
-          xmlns:h="http://java.sun.com/jsf/html">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
+<%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <!--  -->
     <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
@@ -12,13 +12,14 @@
             
                 <body bgcolor="Gray" title="Edumet Employee Web Portal">
                     <f:view>
-                        <h:form id="login">
+                        <h:form id="loginform">
+                        <div id="mainContainer">
                             <h1>
                                 Log in to your
                                 <strong>Employee Portal</strong>
                             </h1>
-                            <div class="errors">
-                                <h:message for="login" style="errors"/>
+                            <div>
+                                <h:message for="loginform" style="errorsText"/>
                             </div>
                             <div>
                                 <label for="username">Username</label>
@@ -48,10 +49,10 @@
                                 <input type="checkbox" name="remember" id="login_remember" value="yes"></input>
                                 Remember my login on this computer
                             </label>
+                            </div>
                         </h:form>
                     </f:view>
                 </body>
             </LINK>
         </head>
     </html>
-</jsp:root>

@@ -6,7 +6,7 @@
 	<from-view-id>/index.jsp</from-view-id>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/resultforsuccess.jsp</to-view-id>
+			<to-view-id>/employeeDashBoard.jsp</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>failure</from-outcome>
