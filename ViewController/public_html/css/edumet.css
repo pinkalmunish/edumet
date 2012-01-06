@@ -275,7 +275,7 @@ body {
     -box-shadow: 0 0 5px #700;
 }
 
-.errorsText {
+#mainContainer .errorsText {
     color: red;
     /*font-family: New Century Schoolbook, serif;*/
 

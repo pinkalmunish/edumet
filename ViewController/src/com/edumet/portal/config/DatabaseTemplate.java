@@ -1,6 +1,5 @@
-package com.edumet;
+package com.edumet.portal.config;
 
-import com.edumet.config.EdumetDAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class DBConnector {
+public class DatabaseTemplate {
 
     static String url = "jdbc:oracle:thin:@74.92.75.133:1521:";
     static String dbName = "web";
@@ -25,7 +24,7 @@ public class DBConnector {
     private static EdumetDAO edumetDAO = (EdumetDAO)context.getBean("EdumetDAO");
     private static JdbcTemplate jdbcTemplate = new JdbcTemplate(edumetDAO.getDataSource());
 
-    public DBConnector() {
+    public DatabaseTemplate() {
         super();
     }
 

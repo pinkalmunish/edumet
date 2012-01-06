@@ -1,4 +1,4 @@
-package com.edumet.config;
+package com.edumet.portal.config;
 
 
 import org.apache.commons.dbcp.BasicDataSource;

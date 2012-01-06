@@ -1,4 +1,6 @@
-package com.edumet;
+package com.edumet.portal.login;
+
+import com.edumet.portal.config.DatabaseTemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +10,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-public class UserInfoBean {
+public class LoginPage {
 
     private String userName;
 
@@ -17,7 +19,7 @@ public class UserInfoBean {
 
     //Constructor
 
-    public UserInfoBean() {
+    public LoginPage() {
 
     }
 
@@ -55,8 +57,7 @@ public class UserInfoBean {
     public String SimpleAuthenticateUser() {
 
 
-        List rs =
-            DBConnector.getConnection().queryForList("select * from portal_user p where p.username = '" + userName +
+        List rs = DatabaseTemplate.getConnection().queryForList("select * from portal_user p where p.username = '" + userName +
                                                      "' and p.password =  '" + password + "'");
         if (!rs.isEmpty()) {
             return "success";

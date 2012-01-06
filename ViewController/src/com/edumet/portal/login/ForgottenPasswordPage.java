@@ -1,5 +1,7 @@
-package com.edumet;
+package com.edumet.portal.login;
 
+
+import com.edumet.portal.config.DatabaseTemplate;
 
 import com.sun.xml.internal.org.jvnet.mimepull.MIMEMessage;
 
@@ -27,11 +29,11 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 
-public class RetrievePasswordBean {
+public class ForgottenPasswordPage {
 
     private String username;
 
-    public RetrievePasswordBean() {
+    public ForgottenPasswordPage() {
         super();
     }
 
@@ -103,14 +105,14 @@ public class RetrievePasswordBean {
     }
 
     private boolean updateTableWithNewPass(String newPass) {
-        JdbcTemplate conn = DBConnector.getConnection();
+        JdbcTemplate conn = DatabaseTemplate.getConnection();
         conn.execute("update portal_user p set p.password = '" + newPass + "' where p.username = '" + username + "'");
 
         return true;
     }
 
     private boolean usernameExists() {
-        JdbcTemplate conn = DBConnector.getConnection();
+        JdbcTemplate conn = DatabaseTemplate.getConnection();
 
         List rs = conn.queryForList("select * from portal_user p where p.username = '" + username + "'");
         if (!rs.isEmpty()) {

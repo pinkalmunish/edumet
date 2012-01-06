@@ -15,7 +15,7 @@
 	</navigation-rule>
         <managed-bean>
 		<managed-bean-name>UserInfoBean</managed-bean-name>
-		<managed-bean-class>com.edumet.UserInfoBean</managed-bean-class>
+		<managed-bean-class>com.edumet.portal.login.LoginPage</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 		<managed-property>
 			<property-name>userName</property-name>
@@ -30,7 +30,7 @@
 	</managed-bean>
         <managed-bean>
 		<managed-bean-name>RetrievePasswordBean</managed-bean-name>
-		<managed-bean-class>com.edumet.RetrievePasswordBean</managed-bean-class>
+		<managed-bean-class>com.edumet.portal.login.ForgottenPasswordPage</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 		<managed-property>
 			<property-name>username</property-name>
