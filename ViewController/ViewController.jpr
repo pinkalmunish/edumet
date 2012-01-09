@@ -432,7 +432,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../.jdeveloper/system11.1.2.1.38.60.81/o.jdeveloper/apache_dbcp.library"/>
+            <value n="id" v="Commons-dbcp.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -440,7 +440,7 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-beanutils-1.8.3-javadoc.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-beanutils-1.8.3-javadoc.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-beanutils-1.8.3-javadoc.jar"/>
@@ -449,7 +449,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-beanutils-1.8.3-sources.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-beanutils-1.8.3-sources.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-beanutils-1.8.3-sources.jar"/>
@@ -458,7 +458,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-beanutils-1.8.3.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-beanutils-1.8.3.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-beanutils-1.8.3.jar"/>
@@ -467,7 +467,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-beanutils-bean-collections-1.8.3.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-beanutils-bean-collections-1.8.3.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-beanutils-bean-collections-1.8.3.jar"/>
@@ -476,7 +476,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-beanutils-core-1.8.3.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-beanutils-core-1.8.3.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-beanutils-core-1.8.3.jar"/>
@@ -485,7 +485,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-codec-1.4-javadoc.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-codec-1.4-javadoc.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-codec-1.4-javadoc.jar"/>
@@ -494,7 +494,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-codec-1.4-sources.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-codec-1.4-sources.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-codec-1.4-sources.jar"/>
@@ -503,7 +503,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-codec-1.4.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-codec-1.4.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-codec-1.4.jar"/>
@@ -512,7 +512,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-collections-3.2.1.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-collections-3.2.1.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-collections-3.2.1.jar"/>
@@ -521,7 +521,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-digester-2.1-javadoc.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-digester-2.1-javadoc.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-digester-2.1-javadoc.jar"/>
@@ -530,7 +530,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-digester-2.1-sources.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-digester-2.1-sources.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-digester-2.1-sources.jar"/>
@@ -539,7 +539,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-digester-2.1.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-digester-2.1.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-digester-2.1.jar"/>
@@ -548,7 +548,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/commons-logging-1.1.1.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/commons-logging-1.1.1.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Commons-logging-1.1.1.jar"/>
@@ -557,7 +557,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/jsf-api.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/jsf-api.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Jsf-api.jar"/>
@@ -566,7 +566,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/jsf-impl.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/jsf-impl.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Jsf-impl.jar"/>
@@ -575,7 +575,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/jstl.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/jstl.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Jstl.jar"/>
@@ -584,7 +584,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/mysql-connector-java-3.1.12-bin.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/mysql-connector-java-3.1.12-bin.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Mysql-connector-java-3.1.12-bin.jar"/>
@@ -593,7 +593,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/richfaces-api-3.1.4.GA.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/richfaces-api-3.1.4.GA.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Richfaces-api-3.1.4.GA.jar"/>
@@ -602,7 +602,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/richfaces-impl-3.1.4.GA.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/richfaces-impl-3.1.4.GA.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Richfaces-impl-3.1.4.GA.jar"/>
@@ -611,7 +611,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/Downloads/jsf-richfaces-simple-login-libraries/richfaces-ui-3.1.4.GA.jar!/"/>
+                  <url protocol="jar" path="public_html/WEB-INF/lib//jsf-richfaces-simple-login-libraries/richfaces-ui-3.1.4.GA.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Richfaces-ui-3.1.4.GA.jar"/>
@@ -758,10 +758,6 @@
          </hash>
          <hash>
             <value n="id" v="Commons-dbcp-1.4.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../.jdeveloper/system11.1.2.1.38.60.81/o.jdeveloper/apache_dbcp.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
