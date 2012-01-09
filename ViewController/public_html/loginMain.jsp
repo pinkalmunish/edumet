@@ -16,7 +16,7 @@
                 <div id="mainContainer">
                     <h1>
                         Log in to your
-                        <h:inputText/>
+                         
                         <strong>Employee Portal</strong>
                     </h1>
                     <div>
@@ -25,14 +25,14 @@
                     <div>
                         <label for="username">Username</label>
                          
-                        <h:inputText id="username" value="#{UserInfoBean.userName}" style="field required"/>
+                        <h:inputText id="username" value="#{LoginPage.userName}" style="field required"/>
                          
                         <h:outputText value=""/>
                     </div>
                     <div>
                         <label for="password">Password</label>
                          
-                        <h:inputSecret id="password" value="#{UserInfoBean.password}" style="field required"/>
+                        <h:inputSecret id="password" value="#{LoginPage.password}" style="field required"/>
                          
                         <h:outputText value=""/>
                     </div>
@@ -40,7 +40,7 @@
                         <a href="ForgottenUserName.faces">Forgot your password?</a>
                     </p>
                     <div class="submit">
-                        <h:commandButton value="Login" action="#{UserInfoBean.SimpleAuthenticateUser}"/>
+                        <h:commandButton value="Login" action="#{LoginPage.SimpleAuthenticateUser}"/>
                     </div>
                     <label>
                         <input type="checkbox" name="remember" id="login_remember" value="yes"></input>

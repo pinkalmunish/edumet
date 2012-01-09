@@ -14,7 +14,7 @@
 		</navigation-case>
 	</navigation-rule>
         <managed-bean>
-		<managed-bean-name>UserInfoBean</managed-bean-name>
+		<managed-bean-name>LoginPage</managed-bean-name>
 		<managed-bean-class>com.edumet.portal.login.LoginPage</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 		<managed-property>

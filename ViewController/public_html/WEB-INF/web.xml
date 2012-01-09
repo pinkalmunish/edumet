@@ -37,14 +37,14 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.faces</url-pattern>
     </servlet-mapping>
-    <servlet>
+   <!-- <servlet>
         <servlet-name>context</servlet-name>
         <servlet-class>org.springframework.web.context.ContextLoaderServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
-    </servlet>
-    <context-param>
+    </servlet> -->
+    <!--<context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml
 </param-value>
-    </context-param>
+    </context-param>-->
 </web-app>
