@@ -22,7 +22,7 @@
                                type="username"></input>
                    
                     <div class="submit">
-                        <button type="submit">submit</button>
+                        <h:commandButton value="Login" action="#{ForgottenPasswordPage.emailPassword}"/>
                     </div>
                     <div class="submit">
                         <h:commandLink value="Login" action="loginMain.jsp"/>

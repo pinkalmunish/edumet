@@ -15,7 +15,7 @@
                             Thank You. A temporary password has been emailed to you
                             
                             <div id="footer">
-                                <h:commandButton value="Login" action="index.jsp" style="submitButton"/>
+                                <h:commandButton value="Login" action="loginMain.faces" style="submitButton"/>
                             </div>
                         </div>
                     </h:form>
