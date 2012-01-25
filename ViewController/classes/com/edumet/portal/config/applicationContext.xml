@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <bean id="EdumetDAO" class="com.edumet.portal.config.EdumetDAO" autowire="constructor">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!-- the DataSource (parameterized for configuration via a PropertyPlaceHolderConfigurer) -->
+    <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@74.92.75.133:1521:web"/>
+        <property name="username" value="edumet"/>
+        <property name="password" value="edumet"/>
+    </bean>
+</beans>

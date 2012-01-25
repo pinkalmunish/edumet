@@ -8,12 +8,15 @@ import java.math.BigInteger;
 
 import java.security.SecureRandom;
 
+import java.sql.SQLException;
+
 import java.util.logging.Logger;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 
 
 public class ForgottenPasswordPage {
@@ -77,16 +80,27 @@ public class ForgottenPasswordPage {
     }
 
     private boolean usernameExists() {
-        JdbcTemplate conn = DatabaseTemplate.getConnection();
-        return true;
+        JdbcTemplate jdbcTemplate = DatabaseTemplate.getConnection();
 
-        //        List rs = conn.queryForList("select * from portal_user p where p.username = '" + username + "'");
-        //        conn.query
-        //        if (!rs.isEmpty()) {
-        //            return true;
-        //        }
-        //
-        //        return false;
+        Object obj =
+            (Boolean)jdbcTemplate.query("select * from portal_user where username = '" + username + "'", new ResultSetExtractor() {
+                public java.lang.Object extractData(java.sql.ResultSet p1) {
+
+                    try {
+                        if (p1.next()) {
+                            return new Boolean("true");
+                        }
+                    } catch (SQLException sqle) {
+
+                        sqle.printStackTrace();
+                        return new Boolean("false");
+                    }
+                    return new Boolean("false");
+                }
+            });
+
+
+        return ((Boolean)obj).booleanValue();
     }
 
 

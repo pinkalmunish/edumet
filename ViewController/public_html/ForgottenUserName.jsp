@@ -12,15 +12,13 @@
             <h:form id="forgottenPass">
                 <div id="mainContainer">
                     <h1>Please Enter Your Email Address</h1>
+                    <div>
+                    <h:message for="forgottenPass" style="error"/>
+                    </div>
                     
-                        <h:message for="forgottenPass" style="error"/>
-                  
-                  
-                        <label for="username">Email Address:  </label>
-                         
-                        <input name="username" id="username" class="field required" title="email address is required"
-                               type="username"></input>
-                   
+                    <label for="username">Email Address:</label>
+                     
+                    <h:inputText id="username" value="#{ForgottenPasswordPage.username}" style="field required"/>
                     <div class="submit">
                         <h:commandButton value="Login" action="#{ForgottenPasswordPage.emailPassword}"/>
                     </div>

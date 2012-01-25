@@ -13,32 +13,7 @@
 			<to-view-id>/loginMain.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-        <managed-bean>
-		<managed-bean-name>LoginPage</managed-bean-name>
-		<managed-bean-class>com.edumet.portal.login.LoginPage</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-		<managed-property>
-			<property-name>userName</property-name>
-			<property-class>java.lang.String</property-class>
-			<value>user</value>
-		</managed-property>
-		<managed-property>
-			<property-name>password</property-name>
-			<property-class>java.lang.String</property-class>
-			<value>pass</value>
-		</managed-property>
-	</managed-bean>
-        <managed-bean>
-		<managed-bean-name>ForgottenPasswordPage</managed-bean-name>
-		<managed-bean-class>com.edumet.portal.login.ForgottenPasswordPage</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-		<managed-property>
-			<property-name>username</property-name>
-			<property-class>java.lang.String</property-class>
-			<value>user</value>
-		</managed-property>
-		 
-	</managed-bean>
+        
  <navigation-rule>
   <from-view-id>/ForgottenUserName.jsp</from-view-id>
   <navigation-case>
