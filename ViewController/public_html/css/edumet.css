@@ -282,3 +282,94 @@ body {
     font-style: normal;
     position: relative;
 }
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+#accordion {
+    width: 459px;
+    margin: 50px auto
+}
+
+.accordion {
+    width: 459px;
+    font: 12px Verdana, Arial;
+    color: #033
+}
+
+.accordion dt {
+    width: 439px;
+    border: 2px solid #9ac1c9;
+    padding: 8px;
+    font-weight: bold;
+    margin-top: 5px;
+    cursor: pointer;
+    font-size: 1.25em;
+    margin-bottom: .6em;
+     
+}
+
+.accordion dt:hover {
+    
+}
+
+.accordion dd {
+    overflow: hidden;
+    background: #fff
+}
+
+.accordion span {
+    display: block;
+    width: 425px;
+    border: 2px solid #9ac1c9;
+    border-top: none;
+    padding: 15px
+}
+
+#accordion2 {
+    width: 259px;
+    margin: 50px auto;
+    border: 1px solid #333;
+    border-top: none
+}
+
+.accordion2 {
+    width: 259px;
+    font: 12px Verdana, Arial;
+    color: #333
+}
+
+.accordion2 dt {
+    width: 247px;
+    padding: 4px 6px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #666;
+    background-position: right center;
+    background-repeat: no-repeat;
+    color: Navy;
+    /*border-top: 1px solid #333*/
+}
+
+.accordion2 dt:hover {
+    background-color: #555
+}
+
+.accordion2 .open {
+    background-color: #444;
+     
+}
+
+.accordion2 dd {
+    overflow: hidden;
+    background: #fff
+}
+
+.accordion2 span {
+    display: block;
+    width: 229px;
+    border-top: none;
+    padding: 15px
+}

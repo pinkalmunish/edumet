@@ -1,21 +1,22 @@
 package com.edumet.portal.login;
 
-import com.edumet.portal.config.DatabaseTemplate;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.edumet.portal.config.DatabaseTemplate;
 
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
+
+
 public class LoginPage {
 
     private String userName;
 
     private String password;
-
+    private final static Logger log = Logger.getLogger(LoginPage.class);
 
     //Constructor
 
@@ -56,11 +57,13 @@ public class LoginPage {
 
     public String SimpleAuthenticateUser() {
 
-
-        List rs = DatabaseTemplate.getConnection().queryForList("select * from portal_user p where p.username = '" + userName +
+        log.warn("Calling Authetnicate User");
+        List rs = DatabaseTemplate.getConnection().queryForList("select * from web_users p where p.user_name = '" + userName +
                                                      "' and p.password =  '" + password + "'");
         if (!rs.isEmpty()) {
-            return "success";
+             
+            return "EmployeeDashBoard.html?faces-redirect=true";
+             
         }
 
         FacesContext.getCurrentInstance().addMessage("loginform", new FacesMessage("Username/Password is incorrect"));

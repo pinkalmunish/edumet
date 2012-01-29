@@ -37,7 +37,7 @@
                         <h:outputText value=""/>
                     </div>
                     <p class="forgot">
-                        <a href="ForgottenUserName.faces">Forgot your password?</a>
+                        <a href="ForgottenUserName.html">Forgot your password?</a>
                     </p>
                     <div class="submit">
                         <h:commandButton value="Login" action="#{LoginPage.SimpleAuthenticateUser}"/>

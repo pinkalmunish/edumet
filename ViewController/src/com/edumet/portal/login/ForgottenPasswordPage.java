@@ -74,7 +74,7 @@ public class ForgottenPasswordPage {
 
     private boolean updateTableWithNewPass(String newPass) {
         JdbcTemplate conn = DatabaseTemplate.getConnection();
-        conn.execute("update portal_user p set p.password = '" + newPass + "' where p.username = '" + username + "'");
+        conn.execute("update web_users p set p.password = '" + newPass + "' where p.user_name = '" + username + "'");
 
         return true;
     }
@@ -83,7 +83,7 @@ public class ForgottenPasswordPage {
         JdbcTemplate jdbcTemplate = DatabaseTemplate.getConnection();
 
         Object obj =
-            (Boolean)jdbcTemplate.query("select * from portal_user where username = '" + username + "'", new ResultSetExtractor() {
+            (Boolean)jdbcTemplate.query("select * from web_users where user_name = '" + username + "'", new ResultSetExtractor() {
                 public java.lang.Object extractData(java.sql.ResultSet p1) {
 
                     try {

@@ -22,20 +22,15 @@
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     </servlet>
-    <!-- Plugging the "Blue Sky" skin into the project -->
-    <context-param>
-        <param-name>org.richfaces.SKIN</param-name>
-        <param-value>ruby</param-value>
-    </context-param>
-    <!-- Making the RichFaces skin spread to standard HTML controls -->
-    <context-param>
-        <param-name>org.richfaces.CONTROL_SKINNING</param-name>
-        <param-value>enable</param-value>
-    </context-param>
+ 
+
+  
+
+ 
     <!-- Defining and mapping the RichFaces filter -->
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.faces</url-pattern>
+        <url-pattern>*.html</url-pattern>
     </servlet-mapping>
     <!-- <servlet>
         <servlet-name>context</servlet-name>
@@ -63,4 +58,14 @@
      <exception-type>java.lang.Throwable</exception-type>
      <location>/error.html</location>
    </error-page>
+   <!--<security-constraint>
+   --><!--web security--><!--
+  <web-resource-collection>
+    <web-resource-name>EmployeeDashBoard.html</web-resource-name>
+    <url-pattern>/EmployeeDashBoard.html</url-pattern>
+  </web-resource-collection>
+  <user-data-constraint>
+    <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+  </user-data-constraint>
+</security-constraint>-->
 </web-app>

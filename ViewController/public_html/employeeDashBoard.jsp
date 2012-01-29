@@ -5,39 +5,46 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/edumet.css" media="screen"/>
+        <script type="text/javascript" src="scripts/accordion.js"></script>
     </head>
     <body bgcolor="#E0FFFF">
         <f:view>
             <h:form id="employeeDashBoard">
                 <div id="mainContainer">
                     <h3 align="center">Sayreville School District Employee Portal</h3>
-                    <div align="left">
-                        <h4 align="left">Tax Information</h4>
-                    </div>
-                    <div align="left">
-                        <h:commandLink value="2009 W2"/>
-                    </div>
-                    <div align="left">
-                        <h:commandLink value="2010 W2"/>
-                    </div>
-                    <div></div>
-                    <div align="left">
-                        <h4 align="left">Human Resources</h4>
-                    </div>
-                    <div align="left">
-                        <h:commandLink value="Vacation Days"/>
-                    </div>
-                    <div align="left">
-                        <h:commandLink value="Payroll"/>
-                    </div>
-                    <div align="left">
-                        <h:commandLink value="Reports"/>
-                    </div>
-                    <p class="back">
-                        <h:commandLink value="Logout" action="loginMain.jsp"></h:commandLink>
-                    </p>
+                     
+                    <dl class="accordion" id="slider">
+                        <dt> Alerts </dt>
+                        <dd> No Alerts at this time </dd>
+                        <dt>Tax Information</dt>
+                        <dd>
+                            <h:commandLink value="2009 W2"/>
+                            <br></br>
+                            <h:commandLink value="2010 W2"/>
+                            <br></br>
+                        </dd>
+                        <dt>Human Resources</dt>
+                        <dd>
+                            <h:commandLink value="Vacation Days"/>
+                            <br></br>
+                            <h:commandLink value="Payroll"/>
+                            <br></br>
+                            <h:commandLink value="Reports"/>
+                            <br></br>
+                        </dd>
+                    </dl>
                 </div>
+                <p class="back">
+                    <h:commandLink value="Logout" action="loginMain.jsp"></h:commandLink>
+                </p>
             </h:form>
         </f:view>
+        <script type="text/javascript">
+          var slider1 = new accordion.slider("slider1");
+          slider1.init("slider");
+
+          var slider2 = new accordion.slider("slider2");
+          slider2.init("slider2", 0, "open");
+        </script>
     </body>
 </html>
