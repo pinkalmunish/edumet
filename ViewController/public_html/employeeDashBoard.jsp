@@ -16,6 +16,19 @@
                     <dl class="accordion" id="slider">
                         <dt> Alerts </dt>
                         <dd> No Alerts at this time </dd>
+                        <dt> My Information </dt>
+                        <dd>
+                            <b>First Name:</b> Pinkal <br>
+                            <b>Last Name:</b>  Shah <br>
+                            <b>Employee State Id:</b> 123456 <br>
+                            <b>Telephone:</b> 732 123 3456 <br>
+                            <b>Salary:</b> $50,000/Year <br>
+                            <b>Street:</b> 36 Lantern Lane <br>
+                            <b>City:</b> Parlin <br> 
+                            <b>State:</b> NJ <br>
+                            <b>zip:</b> 08872 <br>
+                        
+                        </dd>
                         <dt>Tax Information</dt>
                         <dd>
                             <h:commandLink value="2009 W2"/>
