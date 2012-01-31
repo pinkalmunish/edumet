@@ -3,10 +3,15 @@ package com.edumet.portal.login;
 
 import com.edumet.portal.config.DatabaseTemplate;
 
-import java.util.List;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
@@ -57,19 +62,46 @@ public class LoginPage {
 
     public String SimpleAuthenticateUser() {
 
+        Connection conn=null;
         log.warn("Calling Authetnicate User");
-        List rs = DatabaseTemplate.getConnection().queryForList("select * from web_users p where p.user_name = '" + userName +
-                                                     "' and p.password =  '" + password + "'");
-        if (!rs.isEmpty()) {
-             
-            return "EmployeeDashBoard.html?faces-redirect=true";
-             
+        try {
+
+            conn = DatabaseTemplate.getConnection();
+            String query =
+                "select * from web_users wu where wu.user_name = '" +
+                userName + "' and wu.password =  '" + password + "'";
+            log.info("Executing this query " + query);
+            ResultSet rs = conn.createStatement().executeQuery(query);
+            if (rs.next()) {
+//                    String first_name = rs.getString("FIRST_NAME");
+//                    prepareUserSession(first_name);
+                DatabaseTemplate.closeConnection(conn);
+                return "EmployeeDashBoard.html?faces-redirect=true";
+
+            }
+            DatabaseTemplate.closeConnection(conn);
+            FacesContext.getCurrentInstance().addMessage("loginform",
+                                                         new FacesMessage("Username/Password is incorrect"));
+
+        } catch (SQLException se) {
+            DatabaseTemplate.closeConnection(conn);
+            log.error(se, se);
+
+
         }
-
-        FacesContext.getCurrentInstance().addMessage("loginform", new FacesMessage("Username/Password is incorrect"));
-
-
         return "failure";
+
+    }
+
+    private void prepareUserSession(String name) {
+        String attName = "UserInfo";
+        UserInfo reqdObj = new UserInfo();
+        reqdObj.setFirstname(name);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
+        HttpSession httpSession = request.getSession(false);
+        httpSession.setAttribute(attName, reqdObj);
     }
 
 

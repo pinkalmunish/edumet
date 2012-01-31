@@ -8,21 +8,21 @@ import java.math.BigInteger;
 
 import java.security.SecureRandom;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import java.util.logging.Logger;
+import java.sql.Statement;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
+import org.apache.log4j.Logger;
 
 
 public class ForgottenPasswordPage {
 
     private String username;
-    private Logger log = Logger.getAnonymousLogger();
+    private Logger log = Logger.getLogger(ForgottenPasswordPage.class);
 
     public ForgottenPasswordPage() {
         super();
@@ -73,34 +73,42 @@ public class ForgottenPasswordPage {
     }
 
     private boolean updateTableWithNewPass(String newPass) {
-        JdbcTemplate conn = DatabaseTemplate.getConnection();
-        conn.execute("update web_users p set p.password = '" + newPass + "' where p.user_name = '" + username + "'");
+        Connection conn = null;
+        try {
+            conn = DatabaseTemplate.getConnection();
+            Statement statement = conn.createStatement();
+            statement.execute("update web_users p set p.password = '" + newPass + "' where p.user_name = '" +
+                              username + "'");
+            conn.commit();
+            DatabaseTemplate.closeConnection(conn);
+        } catch (SQLException se) {
+            log.error(se, se);
+            DatabaseTemplate.closeConnection(conn);
+            return false;
+        }
 
         return true;
     }
 
     private boolean usernameExists() {
-        JdbcTemplate jdbcTemplate = DatabaseTemplate.getConnection();
-
-        Object obj =
-            (Boolean)jdbcTemplate.query("select * from web_users where user_name = '" + username + "'", new ResultSetExtractor() {
-                public java.lang.Object extractData(java.sql.ResultSet p1) {
-
-                    try {
-                        if (p1.next()) {
-                            return new Boolean("true");
-                        }
-                    } catch (SQLException sqle) {
-
-                        sqle.printStackTrace();
-                        return new Boolean("false");
-                    }
-                    return new Boolean("false");
-                }
-            });
+        Connection connection = DatabaseTemplate.getConnection();
+        try {
+            ResultSet rs =
+                connection.createStatement().executeQuery("select * from web_users where user_name = '" + username +
+                                                          "'");
+            if (rs.next()) {
+                DatabaseTemplate.closeConnection(connection);
+                return true;
+            }
+        } catch (SQLException se) {
+            log.error(se, se);
+            DatabaseTemplate.closeConnection(connection);
+            return false;
+        }
+        DatabaseTemplate.closeConnection(connection);
+        return false;
 
 
-        return ((Boolean)obj).booleanValue();
     }
 
 
