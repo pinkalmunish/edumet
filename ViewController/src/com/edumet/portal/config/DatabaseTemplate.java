@@ -27,8 +27,7 @@ public class DatabaseTemplate {
     private static Logger log = Logger.getLogger(DatabaseTemplate.class);
     private static ApplicationContext context =
         new ClassPathXmlApplicationContext("com/edumet/portal/config/applicationContext.xml");
-    private static EdumetDAO edumetDAO = (EdumetDAO)context.getBean("EdumetDAO");
-    private static JdbcTemplate jdbcTemplate = new JdbcTemplate(edumetDAO.getDataSource());
+    
 
     public DatabaseTemplate() {
         super();

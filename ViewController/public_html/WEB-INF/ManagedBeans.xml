@@ -8,7 +8,6 @@
         <managed-property>
             <property-name>userName</property-name>
             <property-class>java.lang.String</property-class>
-            <value>user</value>
         </managed-property>
         <managed-property>
             <property-name>password</property-name>
@@ -23,7 +22,6 @@
         <managed-property>
             <property-name>username</property-name>
             <property-class>java.lang.String</property-class>
-            <value>user</value>
         </managed-property>
     </managed-bean>
 </faces-config>

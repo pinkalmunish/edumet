@@ -1,6 +1,7 @@
 package com.edumet.portal.login;
 
 
+import com.edumet.models.User.UserInfo;
 import com.edumet.portal.config.DatabaseTemplate;
 
 import java.sql.Connection;
