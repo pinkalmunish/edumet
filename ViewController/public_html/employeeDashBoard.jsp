@@ -14,20 +14,37 @@
                     <h3 align="center">Sayreville School District Employee Portal</h3>
                      
                     <dl class="accordion" id="slider">
-                        <dt> Alerts </dt>
-                        <dd> No Alerts at this time </dd>
-                        <dt> My Information </dt>
+                        <dt>Alerts</dt>
+                        <dd>No Alerts at this time</dd>
+                        <dt>My Information</dt>
                         <dd>
-                            <b>First Name:</b> Pinkal <br>
-                            <b>Last Name:</b>  Shah <br>
-                            <b>Employee State Id:</b> 123456 <br>
-                            <b>Telephone:</b> 732 123 3456 <br>
-                            <b>Salary:</b> $50,000/Year <br>
-                            <b>Street:</b> 36 Lantern Lane <br>
-                            <b>City:</b> Parlin <br> 
-                            <b>State:</b> NJ <br>
-                            <b>zip:</b> 08872 <br>
-                        
+                            <b>First Name:</b>
+                            <h:outputText value="#{EmployeeDashBoardPage.userInfo.firstName}"/>
+                            <br></br>
+                            <b>Last Name:</b>
+                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.lastName}"/>
+                            <br></br>
+                            <b>Employee State Id:</b>
+                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.empStateId}"/>
+                            <br></br>
+                            <b>Telephone:</b>
+                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.telePhone}"/>
+                            <br></br>
+                            <b>Salary:</b>
+                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.totalSalary}"/>
+                            <br></br>
+                            <b>Street:</b>
+                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.street1}"/>
+                            <br></br>
+                            <b>City:</b>
+                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.city}"/>
+                            <br></br>
+                            <b>State:</b>
+                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.state}"/>
+                            <br></br>
+                            <b>zip:</b>
+                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.zip}"/>
+                            <br></br>
                         </dd>
                         <dt>Tax Information</dt>
                         <dd>
@@ -57,7 +74,7 @@
           slider1.init("slider");
 
           var slider2 = new accordion.slider("slider2");
-          slider2.init("slider2", 0, "open");
+              slider2.init("slider2", 0, "open");
         </script>
     </body>
 </html>

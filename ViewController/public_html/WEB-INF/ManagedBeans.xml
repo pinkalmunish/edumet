@@ -4,7 +4,7 @@
     <managed-bean>
         <managed-bean-name>LoginPage</managed-bean-name>
         <managed-bean-class>com.edumet.portal.login.LoginPage</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
+        <managed-bean-scope>request</managed-bean-scope>
         <managed-property>
             <property-name>userName</property-name>
             <property-class>java.lang.String</property-class>
@@ -14,14 +14,27 @@
             <property-class>java.lang.String</property-class>
             <value>pass</value>
         </managed-property>
+        <managed-property>
+            <property-name>userInfo</property-name>
+            <property-class>com.edumet.models.user.UserInfo</property-class>
+        </managed-property>
     </managed-bean>
     <managed-bean>
         <managed-bean-name>ForgottenPasswordPage</managed-bean-name>
         <managed-bean-class>com.edumet.portal.login.ForgottenPasswordPage</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
+        <managed-bean-scope>request</managed-bean-scope>
         <managed-property>
             <property-name>username</property-name>
             <property-class>java.lang.String</property-class>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>EmployeeDashBoardPage</managed-bean-name>
+        <managed-bean-class>com.edumet.portal.dashboard.EmployeeDashBoardPage</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>userInfo</property-name>
+            <property-class>com.edumet.models.user.UserInfo</property-class>
         </managed-property>
     </managed-bean>
 </faces-config>

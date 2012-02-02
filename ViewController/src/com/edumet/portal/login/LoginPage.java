@@ -1,14 +1,20 @@
 package com.edumet.portal.login;
 
 
-import com.edumet.models.User.UserInfo;
+import com.edumet.models.user.UserAddress;
+import com.edumet.models.user.UserInfo;
+import com.edumet.portal.AppConstants;
 import com.edumet.portal.config.DatabaseTemplate;
+
+import java.io.Serializable;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,13 +23,15 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 
 
-public class LoginPage {
+@ManagedBean
+@RequestScoped
+public class LoginPage implements Serializable {
 
     private String userName;
 
     private String password;
     private final static Logger log = Logger.getLogger(LoginPage.class);
-
+    private UserInfo userInfo;
     //Constructor
 
     public LoginPage() {
@@ -63,19 +71,32 @@ public class LoginPage {
 
     public String SimpleAuthenticateUser() {
 
-        Connection conn=null;
+        Connection conn = null;
         log.warn("Calling Authetnicate User");
         try {
 
             conn = DatabaseTemplate.getConnection();
             String query =
-                "select * from web_users wu where wu.user_name = '" +
-                userName + "' and wu.password =  '" + password + "'";
+                "select * from web_users wu, web_emp_demo we where wu.user_name = '" + userName + "' and wu.password =  '" +
+                password + "' and we.emp_state_id = wu.emp_state_id(+)";
             log.info("Executing this query " + query);
             ResultSet rs = conn.createStatement().executeQuery(query);
             if (rs.next()) {
-//                    String first_name = rs.getString("FIRST_NAME");
-//                    prepareUserSession(first_name);
+                String firstName = rs.getString("EMP_FIRST_NAME");
+                String lastName = rs.getString("EMP_LAST_NAME");
+                String totalSalary = rs.getString("EMP_TOTAL_SALARY");
+                String stateId = rs.getString("EMP_STATE_ID");
+
+                String street1 = rs.getString("EMP_STREET");
+                String city = rs.getString("EMP_STREET");
+                String state = rs.getString("EMP_STREET");
+                String zipCode = rs.getString("EMP_STREET");
+                String telePhone = rs.getString("EMP_PHONE");
+
+                UserAddress userAddress = new UserAddress(street1, "", "", city, state, zipCode, telePhone);
+
+                UserInfo userInfo = new UserInfo(firstName, lastName, stateId, totalSalary, userAddress);
+                this.userInfo = userInfo;
                 DatabaseTemplate.closeConnection(conn);
                 return "EmployeeDashBoard.html?faces-redirect=true";
 
@@ -94,16 +115,22 @@ public class LoginPage {
 
     }
 
-    private void prepareUserSession(String name) {
-        String attName = "UserInfo";
-        UserInfo reqdObj = new UserInfo();
-        reqdObj.setFirstname(name);
+    private void prepareUserSession(UserInfo user) {
 
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
         HttpSession httpSession = request.getSession(false);
-        httpSession.setAttribute(attName, reqdObj);
+        httpSession.setAttribute(AppConstants.SESSION_USER_INFO, user);
     }
 
 
+    public void setUserInfo(UserInfo userInfo) {
+        
+
+    }
+
+    public UserInfo getUserInfo() {
+
+        return userInfo;
+    }
 }

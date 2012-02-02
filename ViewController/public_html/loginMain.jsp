@@ -16,7 +16,6 @@
                 <div id="mainContainer">
                     <h1>
                         Log in to your
-                         
                         <strong>Employee Portal</strong>
                     </h1>
                     <div>
@@ -40,7 +39,10 @@
                         <a href="ForgottenUserName.html">Forgot your password?</a>
                     </p>
                     <div class="submit">
-                        <h:commandButton value="Login" action="#{LoginPage.SimpleAuthenticateUser}"/>
+                        <h:commandButton value="Login" action="#{LoginPage.SimpleAuthenticateUser}">
+                            <f:setPropertyActionListener value="#{LoginPage.userInfo}"
+                                                         target="#{EmployeeDashBoardPage.userInfo}" />
+                        </h:commandButton>
                     </div>
                     <label>
                         <input type="checkbox" name="remember" id="login_remember" value="yes"></input>
