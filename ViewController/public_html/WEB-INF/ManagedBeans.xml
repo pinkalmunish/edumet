@@ -4,7 +4,7 @@
     <managed-bean>
         <managed-bean-name>LoginPage</managed-bean-name>
         <managed-bean-class>com.edumet.portal.login.LoginPage</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
+        <managed-bean-scope>session</managed-bean-scope>
         <managed-property>
             <property-name>userName</property-name>
             <property-class>java.lang.String</property-class>
@@ -31,7 +31,7 @@
     <managed-bean>
         <managed-bean-name>EmployeeDashBoardPage</managed-bean-name>
         <managed-bean-class>com.edumet.portal.dashboard.EmployeeDashBoardPage</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
+        <managed-bean-scope>session</managed-bean-scope>
         <managed-property>
             <property-name>userInfo</property-name>
             <property-class>com.edumet.models.user.UserInfo</property-class>

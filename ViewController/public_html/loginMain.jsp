@@ -40,8 +40,8 @@
                     </p>
                     <div class="submit">
                         <h:commandButton value="Login" action="#{LoginPage.SimpleAuthenticateUser}">
-                            <f:setPropertyActionListener value="#{LoginPage.userInfo}"
-                                                         target="#{EmployeeDashBoardPage.userInfo}" />
+                            <!--<f:setPropertyActionListener value="#{LoginPage.userInfo}"
+                                                         target="#{EmployeeDashBoardPage.userInfo}" /> -->
                         </h:commandButton>
                     </div>
                     <label>
