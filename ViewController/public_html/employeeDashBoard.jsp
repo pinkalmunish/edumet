@@ -11,7 +11,7 @@
         <f:view>
             <h:form id="employeeDashBoard">
                 <div id="mainContainer">
-                    <h3 align="center">Sayreville School District Employee Portal</h3>
+                    <h3 align="center"><h:outputText value="#{LoginPage.userInfo.schoolDistrict}"/></h3>
                      
                     <dl class="accordion" id="slider">
                         <dt>Alerts</dt>
@@ -19,31 +19,31 @@
                         <dt>My Information</dt>
                         <dd>
                             <b>First Name:</b>
-                            <h:outputText value="#{EmployeeDashBoardPage.userInfo.firstName}"/>
+                            <h:outputText value="#{LoginPage.userInfo.firstName}"/>
                             <br></br>
                             <b>Last Name:</b>
-                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.lastName}"/>
+                             <h:outputText value="#{LoginPage.userInfo.lastName}"/>
                             <br></br>
                             <b>Employee State Id:</b>
-                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.empStateId}"/>
+                             <h:outputText value="#{LoginPage.userInfo.empStateId}"/>
                             <br></br>
                             <b>Telephone:</b>
-                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.telePhone}"/>
+                             <h:outputText value="#{LoginPage.userInfo.userAddress.telePhone}"/>
                             <br></br>
                             <b>Salary:</b>
-                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.totalSalary}"/>
+                             <h:outputText value="#{LoginPage.userInfo.totalSalary}"/>
                             <br></br>
                             <b>Street:</b>
-                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.street1}"/>
+                             <h:outputText value="#{LoginPage.userInfo.userAddress.street1}"/>
                             <br></br>
                             <b>City:</b>
-                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.city}"/>
+                             <h:outputText value="#{LoginPage.userInfo.userAddress.city}"/>
                             <br></br>
                             <b>State:</b>
-                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.state}"/>
+                             <h:outputText value="#{LoginPage.userInfo.userAddress.state}"/>
                             <br></br>
                             <b>zip:</b>
-                             <h:outputText value="#{EmployeeDashBoardPage.userInfo.userAddress.zip}"/>
+                             <h:outputText value="#{LoginPage.userInfo.userAddress.zip}"/>
                             <br></br>
                         </dd>
                         <dt>Tax Information</dt>

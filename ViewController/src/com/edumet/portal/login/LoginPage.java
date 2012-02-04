@@ -88,14 +88,16 @@ public class LoginPage implements Serializable {
                 String stateId = rs.getString("EMP_STATE_ID");
 
                 String street1 = rs.getString("EMP_STREET");
-                String city = rs.getString("EMP_STREET");
-                String state = rs.getString("EMP_STREET");
-                String zipCode = rs.getString("EMP_STREET");
+                String city = rs.getString("EMP_CITY");
+                String state = rs.getString("EMP_STATE");
+                String zipCode = rs.getString("EMP_ZIP_CODE");
                 String telePhone = rs.getString("EMP_PHONE");
+                String schoolDistrict = rs.getString("BOE");
 
                 UserAddress userAddress = new UserAddress(street1, "", "", city, state, zipCode, telePhone);
 
                 UserInfo userInfo = new UserInfo(firstName, lastName, stateId, totalSalary, userAddress);
+                userInfo.setSchoolDistrict(schoolDistrict);
                 this.userInfo = userInfo;
                 DatabaseTemplate.closeConnection(conn);
                 return "EmployeeDashBoard.html?faces-redirect=true";

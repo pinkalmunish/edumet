@@ -9,6 +9,7 @@ public class UserInfo implements Serializable {
     private String empStateId;
     private String totalSalary;
     private UserAddress userAddress;
+    private String schoolDistrict;
     
     public UserInfo() {
         super();
@@ -62,5 +63,13 @@ public class UserInfo implements Serializable {
 
     public UserAddress getUserAddress() {
         return userAddress;
+    }
+
+    public void setSchoolDistrict(String schoolDistrict) {
+        this.schoolDistrict = schoolDistrict;
+    }
+
+    public String getSchoolDistrict() {
+        return schoolDistrict;
     }
 }
