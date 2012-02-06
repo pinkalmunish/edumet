@@ -13,7 +13,7 @@ public class UserAddress {
         super();
     }
 
-    public UserAddress(String street1, String street2, String street3, String city, String state, String zip,String telePhone) {
+    public UserAddress(String street1, String street2, String street3, String city, String state, String zip, String telePhone) {
         super();
         this.street1 = street1;
         this.street2 = street2;

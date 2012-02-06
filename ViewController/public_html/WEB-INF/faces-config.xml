@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN" "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
-
-<faces-config >
-     <navigation-rule>
-	<from-view-id>/loginMain.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>success</from-outcome>
-			<to-view-id>/employeeDashBoard.jsp</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>failure</from-outcome>
-			<to-view-id>/loginMain.jsp</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-        
- <navigation-rule>
-  <from-view-id>/ForgottenUserName.jsp</from-view-id>
-  <navigation-case>
-   <from-outcome>success</from-outcome>
-   <to-view-id>/PasswordEmailed.jsp</to-view-id>
-  </navigation-case>
-  <navigation-case>
-   <from-outcome>failure</from-outcome>
-   <to-view-id>/ForgottenUserName.jsp</to-view-id>
-  </navigation-case>
- </navigation-rule>
+<faces-config>
+    <navigation-rule>
+        <from-view-id>/loginMain.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/employeeDashBoard.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/loginMain.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/ForgottenUserName.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/PasswordEmailed.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/ForgottenUserName.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <converter>
+        <description>A Converter for phone number</description>
+        <converter-id>PhoneNumberConverter</converter-id>
+        <converter-class>com.edumet.portal.PhoneConverter</converter-class>
+    </converter>
 </faces-config>

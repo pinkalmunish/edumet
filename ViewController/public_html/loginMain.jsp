@@ -24,14 +24,14 @@
                     <div>
                         <label for="username">Username</label>
                          
-                        <h:inputText id="username" value="#{LoginPage.userName}" style="field required"/>
+                        <h:inputText id="username" value="#{UserInfo.userName}" style="field required"/>
                          
                         <h:outputText value=""/>
                     </div>
                     <div>
                         <label for="password">Password</label>
                          
-                        <h:inputSecret id="password" value="#{LoginPage.password}" style="field required"/>
+                        <h:inputSecret id="password" value="#{UserInfo.password}" style="field required"/>
                          
                         <h:outputText value=""/>
                     </div>
@@ -39,9 +39,8 @@
                         <a href="ForgottenUserName.html">Forgot your password?</a>
                     </p>
                     <div class="submit">
-                        <h:commandButton value="Login" action="#{LoginPage.SimpleAuthenticateUser}">
-                            <!--<f:setPropertyActionListener value="#{LoginPage.userInfo}"
-                                                         target="#{EmployeeDashBoardPage.userInfo}" /> -->
+                        <h:commandButton value="Login" action="#{UserInfo.SimpleAuthenticateUser}">
+                           
                         </h:commandButton>
                     </div>
                     <label>

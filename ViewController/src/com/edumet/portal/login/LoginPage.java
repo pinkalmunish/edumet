@@ -84,7 +84,7 @@ public class LoginPage implements Serializable {
             if (rs.next()) {
                 String firstName = rs.getString("EMP_FIRST_NAME");
                 String lastName = rs.getString("EMP_LAST_NAME");
-                String totalSalary = rs.getString("EMP_TOTAL_SALARY");
+                //int totalSalary = rs.getString("EMP_TOTAL_SALARY");
                 String stateId = rs.getString("EMP_STATE_ID");
 
                 String street1 = rs.getString("EMP_STREET");
@@ -96,10 +96,12 @@ public class LoginPage implements Serializable {
 
                 UserAddress userAddress = new UserAddress(street1, "", "", city, state, zipCode, telePhone);
 
-                UserInfo userInfo = new UserInfo(firstName, lastName, stateId, totalSalary, userAddress);
+                UserInfo userInfo = new UserInfo(firstName, lastName, stateId, 0, userAddress);
                 userInfo.setSchoolDistrict(schoolDistrict);
                 this.userInfo = userInfo;
                 DatabaseTemplate.closeConnection(conn);
+                userInfo.setIsLoggedIn(true);
+                FacesContext.getCurrentInstance().getExternalContext().getSession(true);
                 return "EmployeeDashBoard.html?faces-redirect=true";
 
             }
