@@ -39,7 +39,7 @@
                         <a href="ForgottenUserName.html">Forgot your password?</a>
                     </p>
                     <div class="submit">
-                        <h:commandButton value="Login" action="#{UserInfo.SimpleAuthenticateUser}">
+                        <h:commandButton value="Login" action="#{UserInfo.authenticateUser}">
                            
                         </h:commandButton>
                     </div>

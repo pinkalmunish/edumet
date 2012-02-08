@@ -6,7 +6,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/edumet.css" media="screen"/>
         <script type="text/javascript" src="scripts/accordion.js">
-
+ < 
         </script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script type="text/javascript">
@@ -68,10 +68,15 @@
                         </dd>
                         <dt>Tax Information</dt>
                         <dd>
-                            <h:commandLink value="2009 W2"/>
-                            <br></br>
-                            <h:commandLink value="2010 W2"/>
-                            <br></br>
+                            <h:dataTable id="yearlyW2" value="#{UserInfo.w2Models}" var="w2"
+                                         rowClasses="list-row-odd, list-row-even" headerClass="table-header"
+                                         styleClass="bordered">
+                                <h:column id="col_name">
+                                 <h:commandLink value="#{w2.year}" action="#{w2.onClick}"/>
+                                </h:column>
+                            </h:dataTable>
+                            
+                            
                         </dd>
                         <dt>Human Resources</dt>
                         <dd>

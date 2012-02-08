@@ -1,4 +1,4 @@
-package com.edumet.portal.dashboard.payroll;
+package com.edumet.models.payroll;
 
 import java.io.Serializable;
 

@@ -1,13 +1,18 @@
 package com.edumet.models.user;
 
 
+import com.edumet.models.payroll.W2Model;
 import com.edumet.portal.config.DatabaseTemplate;
 
 import java.io.Serializable;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -26,6 +31,8 @@ public class UserInfo implements Serializable {
     private boolean isLoggedIn;
     private String userName;
     private String password;
+    private List<W2Model> w2Models = new ArrayList<W2Model>();
+
     private final static Logger log = Logger.getLogger(UserInfo.class);
 
     public UserInfo() {
@@ -39,8 +46,7 @@ public class UserInfo implements Serializable {
         //        }
     }
 
-    public UserInfo(String firstname, String lastName, String empStateId, int totalSalary,
-                    UserAddress userAddress) {
+    public UserInfo(String firstname, String lastName, String empStateId, int totalSalary, UserAddress userAddress) {
         super();
         this.firstName = firstname;
         this.lastName = lastName;
@@ -111,17 +117,53 @@ public class UserInfo implements Serializable {
         return isLoggedIn;
     }
 
-    public String SimpleAuthenticateUser() {
+    public String authenticateUser() {
 
         Connection conn = null;
         log.warn("Calling Authetnicate User");
+        boolean userAuthenticated = false;
         try {
 
             conn = DatabaseTemplate.getConnection();
-            String query =
-                "select * from web_users wu, web_emp_demo we where wu.user_name = '" + userName + "' and wu.password =  '" +
-                password + "' and we.emp_state_id = wu.emp_state_id(+)";
+            String query = "select * from web_users wu where wu.user_name = '"+userName+"' and wu.password =  '" + password+"'";
             log.info("Executing this query " + query);
+            ResultSet rs = conn.createStatement().executeQuery(query);
+            
+            if (rs.next()) {
+                userAuthenticated = true;
+            }
+            DatabaseTemplate.closeConnection(conn);
+            setIsLoggedIn(true);
+
+
+        } catch (SQLException se) {
+            DatabaseTemplate.closeConnection(conn);
+            log.error(se, se);
+
+
+        }
+        if (userAuthenticated) {
+
+            fetchData();
+            fetchW2Models();
+            this.setIsLoggedIn(true);
+            FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+            return "EmployeeDashBoard.html?faces-redirect=true";
+        }
+        FacesContext.getCurrentInstance().addMessage("loginform", new FacesMessage("Username/Password is incorrect"));
+        return "failure";
+
+    }
+
+    private void fetchData() {
+
+        Connection conn = null;
+
+        try {
+            String query =
+                "select * from web_users wu, web_emp_demo we, web_emp_w2 w2 where wu.user_name = '" + userName +
+                "' and we.emp_state_id = wu.emp_state_id(+)";
+            conn = DatabaseTemplate.getConnection();
             ResultSet rs = conn.createStatement().executeQuery(query);
             if (rs.next()) {
                 String firstName = rs.getString("EMP_FIRST_NAME");
@@ -138,7 +180,7 @@ public class UserInfo implements Serializable {
 
                 UserAddress userAddress = new UserAddress(street1, "", "", city, state, zipCode, telePhone);
 
-                //this = new UserInfo(firstName, lastName, stateId, totalSalary, userAddress);
+
                 this.setFirstName(firstName);
                 this.setLastName(lastName);
                 this.setEmpStateId(stateId);
@@ -146,25 +188,44 @@ public class UserInfo implements Serializable {
                 this.setUserAddress(userAddress);
 
                 this.setSchoolDistrict(schoolDistrict);
-
-                DatabaseTemplate.closeConnection(conn);
-                this.setIsLoggedIn(true);
-                FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-                return "EmployeeDashBoard.html?faces-redirect=true";
-
             }
-            DatabaseTemplate.closeConnection(conn);
-            setIsLoggedIn(true);
-            FacesContext.getCurrentInstance().addMessage("loginform",
-                                                         new FacesMessage("Username/Password is incorrect"));
 
+            DatabaseTemplate.closeConnection(conn);
         } catch (SQLException se) {
-            DatabaseTemplate.closeConnection(conn);
             log.error(se, se);
-
-
+            DatabaseTemplate.closeConnection(conn);
         }
-        return "failure";
+
+    }
+
+    private void fetchW2Models() {
+        List<W2Model> w2Models = new ArrayList<W2Model>();
+        Connection conn = null;
+
+        try {
+            String query =
+                "select * from web_users wu, web_emp_w2 w2 where wu.user_name = '" + userName + "' and w2.emp_state_id = wu.emp_state_id(+)";
+            conn = DatabaseTemplate.getConnection();
+            ResultSet rs = conn.createStatement().executeQuery(query);
+
+            W2Model w2Model;
+            while (rs.next()) {
+                w2Model = new W2Model();
+                Blob fileData = rs.getBlob("EMP_W2");
+                byte[] allBytesInBlob = fileData.getBytes(1, (int) fileData.length());
+                w2Model.setStream(allBytesInBlob);
+                w2Model.setYear(rs.getString("EMP_YEAR"));
+                w2Models.add(w2Model);
+            }
+
+            DatabaseTemplate.closeConnection(conn);
+        } catch (SQLException se) {
+            log.error(se, se);
+            DatabaseTemplate.closeConnection(conn);
+        }
+
+        this.setW2Models(w2Models);
+
 
     }
 
@@ -174,7 +235,6 @@ public class UserInfo implements Serializable {
         return "loginMain.html?faces-redirect=true";
     }
 
-     
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -190,5 +250,17 @@ public class UserInfo implements Serializable {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setW2Models(List<W2Model> w2Models) {
+        this.w2Models = w2Models;
+    }
+
+    public void addW2Model(W2Model w2Model) {
+        w2Models.add(w2Model);
+    }
+
+    public List<W2Model> getW2Models() {
+        return w2Models;
     }
 }
