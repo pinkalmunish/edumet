@@ -23,12 +23,11 @@
     <body bgcolor="#E0FFFF">
         <f:view>
             <h:form id="employeeDashBoard">
-                <div id="mainContainer">
+                <div>
+                    <!-- id="mainContainer"> -->
                     <h3 align="center">
                         <h:outputText value="#{UserInfo.schoolDistrict}"/>
-                    </h3>
-                     
-                    <dl class="accordion" id="slider">
+                    </h3><!--<dl class="accordion" id="slider">
                         <dt>Alerts</dt>
                         <dd>No Alerts at this time</dd>
                         <dt>My Information</dt>
@@ -87,10 +86,112 @@
                             <h:commandLink value="Reports"/>
                             <br></br>
                         </dd>
-                    </dl>
-                    <p class="back">
-                        <h:commandLink value="Logout" action="#{UserInfo.logOut}"></h:commandLink>
-                    </p>
+                    </dl> -->
+                    <div class="horizontalaccordion">
+                        <ul>
+                            <li>
+                                <h3>My Information</h3>
+                                <div>
+                                    <b>First Name:</b>
+                                     
+                                    <h:outputText value="#{UserInfo.firstName}"/>
+                                     
+                                    <br></br>
+                                     
+                                    <b>Last Name:</b>
+                                     
+                                    <h:outputText value="#{UserInfo.lastName}"/>
+                                     
+                                    <br></br>
+                                     
+                                    <b>Employee State Id:</b>
+                                     
+                                    <h:outputText value="#{UserInfo.empStateId}"/>
+                                     
+                                    <br></br>
+                                     
+                                    <b>Telephone:</b>
+                                     
+                                    <h:outputText value="#{UserInfo.userAddress.telePhone}">
+                                        <f:converter converterId="PhoneNumberConverter"></f:converter>
+                                    </h:outputText>
+                                     
+                                    <br></br>
+                                     
+                                    <b>Annual Salary:</b>
+                                     
+                                    <h:outputText value="#{UserInfo.totalSalary}">
+                                        <f:convertNumber currencySymbol="$" groupingUsed="#{true}" maxFractionDigits="2"
+                                                         type="currency"></f:convertNumber>
+                                    </h:outputText>
+                                     
+                                    <br></br>
+                                     
+                                    <b>Street:</b>
+                                     
+                                    <h:outputText value="#{UserInfo.userAddress.street1}"/>
+                                     
+                                    <br></br>
+                                     
+                                    <b>City:</b>
+                                     
+                                    <h:outputText value="#{UserInfo.userAddress.city}"/>
+                                     
+                                    <br></br>
+                                     
+                                    <b>State:</b>
+                                     
+                                    <h:outputText value="#{UserInfo.userAddress.state}"/>
+                                     
+                                    <br></br>
+                                     
+                                    <b>zip:</b>
+                                     
+                                    <h:outputText value="#{UserInfo.userAddress.zip}"/>
+                                     
+                                    <br></br>
+                                </div>
+                            </li>
+                             
+                            <li>
+                                <h3>Tax Information</h3>
+                                <h:dataTable id="yearlyW2B" value="#{UserInfo.w2Models}" var="w2"
+                                             rowClasses="list-row-odd, list-row-even" headerClass="table-header"
+                                             styleClass="bordered">
+                                    <h:column id="col_name">
+                                        <h:commandLink value="#{w2.year}" action="#{w2.onClick}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </li>
+                             
+                            <li>
+                                <h3>Human Resources</h3>
+                                <div>
+                                    <h:commandLink value="Vacation Days"/>
+                                     
+                                    <br></br>
+                                     
+                                    <h:commandLink value="Payroll"/>
+                                     
+                                    <br></br>
+                                     
+                                    <h:commandLink value="Reports"/>
+                                     
+                                    <br></br>
+                                </div>
+                            </li>
+                             
+                            <li>
+                                <h3>Alerts</h3>
+                                <div>No Alerts</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="back">
+                            <h:commandLink value="Logout" action="#{UserInfo.logOut}"></h:commandLink>
+                        </p>
+                    </div>
                 </div>
             </h:form>
         </f:view>
