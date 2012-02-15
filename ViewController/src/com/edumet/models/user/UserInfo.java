@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -37,13 +38,7 @@ public class UserInfo implements Serializable {
 
     public UserInfo() {
         super();
-        //        if (!isUserLoggedIn()) {
-        //            try {
-        //                FacesContext.getCurrentInstance().getExternalContext().redirect("loginMain.html");
-        //            } catch (IOException ioe) {
-        //                log.error(ioe, ioe);
-        //            }
-        //        }
+
     }
 
     public UserInfo(String firstname, String lastName, String empStateId, int totalSalary, UserAddress userAddress) {
@@ -125,10 +120,14 @@ public class UserInfo implements Serializable {
         try {
 
             conn = DatabaseTemplate.getConnection();
-            String query = "select * from web_users wu where wu.user_name = '"+userName+"' and wu.password =  '" + password+"'";
+            String query = "select * from web_users wu where wu.user_name = ? and wu.password = ?";
             log.info("Executing this query " + query);
-            ResultSet rs = conn.createStatement().executeQuery(query);
-            
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, userName);
+            preparedStmt.setString(2, password);
+
+            ResultSet rs = preparedStmt.executeQuery();
+
             if (rs.next()) {
                 userAuthenticated = true;
             }
@@ -161,10 +160,12 @@ public class UserInfo implements Serializable {
 
         try {
             String query =
-                "select * from web_users wu, web_emp_demo we, web_emp_w2 w2 where wu.user_name = '" + userName +
-                "' and we.emp_state_id = wu.emp_state_id(+)";
+                "select * from web_users wu, web_emp_demo we, web_emp_w2 w2 where wu.user_name = ?  and we.emp_state_id = wu.emp_state_id(+)";
             conn = DatabaseTemplate.getConnection();
-            ResultSet rs = conn.createStatement().executeQuery(query);
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1, userName);
+            log.info("executing query : "+query);
+            ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 String firstName = rs.getString("EMP_FIRST_NAME");
                 String lastName = rs.getString("EMP_LAST_NAME");
@@ -204,15 +205,18 @@ public class UserInfo implements Serializable {
 
         try {
             String query =
-                "select * from web_users wu, web_emp_w2 w2 where wu.user_name = '" + userName + "' and w2.emp_state_id = wu.emp_state_id(+)";
+                "select * from web_users wu, web_emp_w2 w2 where wu.user_name = ? and w2.emp_state_id = wu.emp_state_id(+)";
             conn = DatabaseTemplate.getConnection();
-            ResultSet rs = conn.createStatement().executeQuery(query);
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setString(1, userName);
+            log.info("executing query : "+query);
+            ResultSet rs = preparedStatement.executeQuery();
 
             W2Model w2Model;
             while (rs.next()) {
                 w2Model = new W2Model();
                 Blob fileData = rs.getBlob("EMP_W2");
-                byte[] allBytesInBlob = fileData.getBytes(1, (int) fileData.length());
+                byte[] allBytesInBlob = fileData.getBytes(1, (int)fileData.length());
                 w2Model.setStream(allBytesInBlob);
                 w2Model.setYear(rs.getString("EMP_YEAR"));
                 w2Models.add(w2Model);

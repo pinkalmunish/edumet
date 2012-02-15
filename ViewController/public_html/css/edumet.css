@@ -480,3 +480,30 @@ horizontalaccordion>ul {
 .horizontalaccordion>ul>li>h3:hover {
     cursor:pointer;
 }
+.LinkButton {
+  background: transparent;
+  border: 0;
+  border-bottom: 0px solid blue;
+  color: blue;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+     
+/*[if lte IE 7]>
+    <style type="text/css">
+.button {
+  border: 0;
+  text-decoration: underline;
+}
+    </style>
+<![endif]-->      */
+
+ .errors {
+    font-style: italic;
+    color: red;
+ }
+ .emphasis {
+    font-size: 1.3em;
+ }

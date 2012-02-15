@@ -18,9 +18,9 @@
                         Log in to your
                         <strong>Employee Portal</strong>
                     </h1>
-                    <div>
-                        <h:message for="loginform" style="error"/>
-                    </div>
+                   
+                        <h:message for="loginform" errorClass="errors"/>
+                   
                     <div>
                         <label for="username">Username</label>
                          

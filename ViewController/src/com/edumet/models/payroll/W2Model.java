@@ -43,13 +43,15 @@ public class W2Model implements Serializable {
         return stream;
     }
 
-    public void onClick() {
+    public String onClick() {
 
         try {
             downloadPDF();
         } catch (IOException ioe) {
             log.error(ioe, ioe);
         }
+        
+        return "";
 
     }
     // Actions ------------------------------------------------------------------------------------
