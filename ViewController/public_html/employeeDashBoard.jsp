@@ -155,7 +155,7 @@
                              
                             <li>
                                 <h3>Tax Information</h3>
-                               
+                               <div>
                                 <h:dataTable id="yearlyW2B" value="#{UserInfo.w2Models}" var="w2"
                                              rowClasses="list-row-odd, list-row-even" headerClass="table-header"
                                              styleClass="bordered">
@@ -163,6 +163,7 @@
                                         <h:commandButton value="#{w2.year}" action="#{w2.onClick}" styleClass="LinkButton"/>
                                     </h:column>
                                 </h:dataTable>
+                                </div>
                                 
                                 
                             </li>
