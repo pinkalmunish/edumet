@@ -115,6 +115,8 @@ public class UserInfo implements Serializable {
     public String authenticateUser() {
 
         Connection conn = null;
+        PreparedStatement preparedStmt = null;
+        ResultSet rs = null;
         log.warn("Calling Authetnicate User");
         boolean userAuthenticated = false;
         try {
@@ -122,11 +124,11 @@ public class UserInfo implements Serializable {
             conn = DatabaseTemplate.getConnection();
             String query = "select * from web_users wu where wu.user_name = ? and wu.password = ?";
             log.info("Executing this query " + query);
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, userName);
             preparedStmt.setString(2, password);
 
-            ResultSet rs = preparedStmt.executeQuery();
+            rs = preparedStmt.executeQuery();
 
             if (rs.next()) {
                 userAuthenticated = true;
@@ -139,6 +141,22 @@ public class UserInfo implements Serializable {
             DatabaseTemplate.closeConnection(conn);
             log.error(se, se);
 
+
+        } finally {
+
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+                if (preparedStmt != null) {
+                    preparedStmt.close();
+                }
+            } catch (SQLException se) {
+                log.error(se, se);
+            }
 
         }
         if (userAuthenticated) {
@@ -157,15 +175,17 @@ public class UserInfo implements Serializable {
     private void fetchData() {
 
         Connection conn = null;
+        ResultSet rs = null;
+        PreparedStatement preparedStatement = null;
 
         try {
             String query =
                 "select * from web_users wu, web_emp_demo we, web_emp_w2 w2 where wu.user_name = ?  and we.emp_state_id = wu.emp_state_id(+)";
             conn = DatabaseTemplate.getConnection();
-            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1, userName);
-            log.info("executing query : "+query);
-            ResultSet rs = preparedStatement.executeQuery();
+            log.info("executing query : " + query);
+            rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 String firstName = rs.getString("EMP_FIRST_NAME");
                 String lastName = rs.getString("EMP_LAST_NAME");
@@ -191,10 +211,26 @@ public class UserInfo implements Serializable {
                 this.setSchoolDistrict(schoolDistrict);
             }
 
-            DatabaseTemplate.closeConnection(conn);
+
         } catch (SQLException se) {
             log.error(se, se);
-            DatabaseTemplate.closeConnection(conn);
+
+        } finally {
+
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+            } catch (SQLException se) {
+                log.error(se, se);
+            }
+
         }
 
     }
@@ -202,15 +238,17 @@ public class UserInfo implements Serializable {
     private void fetchW2Models() {
         List<W2Model> w2Models = new ArrayList<W2Model>();
         Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
 
         try {
             String query =
                 "select * from web_users wu, web_emp_w2 w2 where wu.user_name = ? and w2.emp_state_id = wu.emp_state_id(+)";
             conn = DatabaseTemplate.getConnection();
-            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1, userName);
-            log.info("executing query : "+query);
-            ResultSet rs = preparedStatement.executeQuery();
+            log.info("executing query : " + query);
+            rs = preparedStatement.executeQuery();
 
             W2Model w2Model;
             while (rs.next()) {
@@ -226,6 +264,22 @@ public class UserInfo implements Serializable {
         } catch (SQLException se) {
             log.error(se, se);
             DatabaseTemplate.closeConnection(conn);
+        } finally {
+
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+            } catch (SQLException se) {
+                log.error(se, se);
+            }
+
         }
 
         this.setW2Models(w2Models);

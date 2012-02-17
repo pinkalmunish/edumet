@@ -441,7 +441,7 @@ horizontalaccordion>ul {
  
 .horizontalaccordion>ul>li>div {
     display:none;
-    float:left;
+    float:right;
     overflow: auto;
     position:relative;
     top:-40px;

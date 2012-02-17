@@ -87,7 +87,7 @@
                             <br></br>
                         </dd>
                     </dl> -->
-                    <div class="horizontalaccordion">
+                    <div class="horizontalaccordion" align="center">
                         <ul>
                             <li>
                                 <h3>My Information</h3>
