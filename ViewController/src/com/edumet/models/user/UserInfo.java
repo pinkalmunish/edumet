@@ -165,7 +165,7 @@ public class UserInfo implements Serializable {
             fetchW2Models();
             this.setIsLoggedIn(true);
             FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-            return "EmployeeDashBoard.html?faces-redirect=true";
+            return "employeeDashBoard.html?faces-redirect=true";
         }
         FacesContext.getCurrentInstance().addMessage("loginform", new FacesMessage("Username/Password is incorrect"));
         return "failure";
