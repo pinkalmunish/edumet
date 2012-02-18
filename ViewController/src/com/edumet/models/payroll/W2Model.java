@@ -75,7 +75,7 @@ public class W2Model implements Serializable {
             response.reset();
             response.setHeader("Content-Type", "application/pdf");
             response.setHeader("Content-Length", String.valueOf(stream.length));
-            response.setHeader("Content-Disposition", "attachment;filename=\"" + year + "\"");
+            response.setHeader("Content-Disposition", "inline;filename=\"" + year + "\"");
             output = new BufferedOutputStream(response.getOutputStream(), DEFAULT_BUFFER_SIZE);
 
             // Write file contents to response.

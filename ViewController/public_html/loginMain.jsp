@@ -19,7 +19,7 @@
                         <strong>Employee Portal</strong>
                     </h1>
                    
-                        <h:message for="loginform" errorClass="errors"/>
+                        <p align="center"><h:message for="loginform" styleClass="errorsText" /></p>
                    
                     <div>
                         <label for="username">Username</label>

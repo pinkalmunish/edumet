@@ -20,7 +20,7 @@
                         <ul>
                             <li>
                                 <h3>My Information</h3>
-                                <div>
+                                <div style="color:blue">
                                     <b style="color:blue">First Name:</b>
                                      
                                     <h:outputText value="#{UserInfo.firstName} "/>
@@ -105,11 +105,11 @@
                                      
                                     <br></br>
                                      
-                                    <h:commandButton value="Payroll" styleClass="LinkButton"/>
+                                    <h:commandButton value="Pay Statements" styleClass="LinkButton"/>
                                      
                                     <br></br>
                                      
-                                    <h:commandButton value="Reports" styleClass="LinkButton"/>
+                                    <h:commandButton value="Request Leave" styleClass="LinkButton"/>
                                      
                                     <br></br>
                                 </div>
