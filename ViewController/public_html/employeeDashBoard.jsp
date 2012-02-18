@@ -6,95 +6,24 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/edumet.css" media="screen"/>
         <script type="text/javascript" src="scripts/accordion.js">
-  
         </script>
-        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> -->
-       <!-- <script type="text/javascript">
-          horizontalaccordion.setup( {
-              accordionid : 'hc2', //main accordion div id
-              paneldimensions :  {
-                  peekw : '30px', fullw : '450px', h : '150px'
-              },
-              selectedli : [0, true], //[selectedli_index, persiststate_bool]
-              collapsecurrent : true//<- No comma following very last setting!
-          })
-        </script> -->
     </head>
     <body bgcolor="#E0FFFF">
         <f:view>
             <h:form id="employeeDashBoard">
-                <div>
-                    <!-- id="mainContainer"> -->
-                    <h3 align="center">
+                <div id="dashBoardContainer">
+                    <h3 align="center" id="schoolTitle">
                         <h:outputText value="#{UserInfo.schoolDistrict}"/>
-                    </h3><!--<dl class="accordion" id="slider">
-                        <dt>Alerts</dt>
-                        <dd>No Alerts at this time</dd>
-                        <dt>My Information</dt>
-                        <dd>
-                            <b>First Name:</b>
-                            <h:outputText value="#{UserInfo.firstName}"/>
-                            <br></br>
-                            <b>Last Name:</b>
-                            <h:outputText value="#{UserInfo.lastName}"/>
-                            <br></br>
-                            <b>Employee State Id:</b>
-                            <h:outputText value="#{UserInfo.empStateId}"/>
-                            <br></br>
-                            <b>Telephone:</b>
-                            <h:outputText value="#{UserInfo.userAddress.telePhone}">
-                                <f:converter converterId="PhoneNumberConverter"></f:converter>
-                            </h:outputText>
-                            <br></br>
-                            <b>Annual Salary:</b>
-                            <h:outputText value="#{UserInfo.totalSalary}">
-                                <f:convertNumber currencySymbol="$" groupingUsed="#{true}" maxFractionDigits="2"
-                                                 type="currency"></f:convertNumber>
-                            </h:outputText>
-                            <br></br>
-                            <b>Street:</b>
-                            <h:outputText value="#{UserInfo.userAddress.street1}"/>
-                            <br></br>
-                            <b>City:</b>
-                            <h:outputText value="#{UserInfo.userAddress.city}"/>
-                            <br></br>
-                            <b>State:</b>
-                            <h:outputText value="#{UserInfo.userAddress.state}"/>
-                            <br></br>
-                            <b>zip:</b>
-                            <h:outputText value="#{UserInfo.userAddress.zip}"/>
-                            <br></br>
-                        </dd>
-                        <dt>Tax Information</dt>
-                        <dd>
-                            <h:dataTable id="yearlyW2" value="#{UserInfo.w2Models}" var="w2"
-                                         rowClasses="list-row-odd, list-row-even" headerClass="table-header"
-                                         styleClass="bordered">
-                                <h:column id="col_name">
-                                 <h:commandLink value="#{w2.year}" action="#{w2.onClick}"/>
-                                </h:column>
-                            </h:dataTable>
-                            
-                            
-                        </dd>
-                        <dt>Human Resources</dt>
-                        <dd>
-                            <h:commandLink value="Vacation Days"/>
-                            <br></br>
-                            <h:commandLink value="Payroll"/>
-                            <br></br>
-                            <h:commandLink value="Reports"/>
-                            <br></br>
-                        </dd>
-                    </dl> -->
-                    <div class="horizontalaccordion" align="center">
+                    </h3>
+                    <h4 align="left" style="color:maroon">Welcome <h:outputText value="#{UserInfo.firstName}"/> !</h4>
+                    <div class="horizontalaccordion">
                         <ul>
                             <li>
                                 <h3>My Information</h3>
                                 <div>
                                     <b style="color:blue">First Name:</b>
                                      
-                                    <h:outputText value="#{UserInfo.firstName}"/>
+                                    <h:outputText value="#{UserInfo.firstName} "/>
                                      
                                     <br></br>
                                      
@@ -155,17 +84,18 @@
                              
                             <li>
                                 <h3>Tax Information</h3>
-                               <div>
-                                <h:dataTable id="yearlyW2B" value="#{UserInfo.w2Models}" var="w2"
-                                             rowClasses="list-row-odd, list-row-even" headerClass="table-header"
-                                             styleClass="bordered">
-                                    <h:column id="col_name">
-                                        <h:commandButton value="#{w2.year}" action="#{w2.onClick}" styleClass="LinkButton"/>
-                                    </h:column>
-                                </h:dataTable>
-                                </div>
-                                
-                                
+                                    <h:panelGrid>
+                                    <h3>W2</h3>
+                                    <h:dataTable id="yearlyW2B" value="#{UserInfo.w2Models}" var="w2"
+                                                 rowClasses="list-row-odd, list-row-even" headerClass="table-header"
+                                                 styleClass="bordered">
+                                        <h:column id="col_name">
+                                            <h:commandButton value="#{w2.year}" action="#{w2.onClick}"
+                                                             styleClass="LinkButton"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                    </h:panelGrid>
+                                  
                             </li>
                              
                             <li>
@@ -187,7 +117,9 @@
                              
                             <li>
                                 <h3>Alerts</h3>
-                                <div><p style="color:red">No Alerts</p></div>
+                                <div>
+                                    <p style="color:red">No Alerts</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -195,7 +127,7 @@
                         <p class="back">
                             <h:commandButton value="Logout" action="#{UserInfo.logOut}" styleClass="LinkButton"></h:commandButton>
                         </p>
-                    </div>
+                </div>
                 </div>
             </h:form>
         </f:view>
