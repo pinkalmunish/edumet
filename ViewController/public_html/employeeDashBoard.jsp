@@ -81,9 +81,12 @@
                                     <br></br>
                                 </div>
                             </li>
-                             
                             <li>
-                                <h3>Tax Information</h3>
+                            <h3>Pay Stubs</h3>
+                            </li>
+                            </li>
+                            <li>
+                                <h3>W2 Information</h3>
                                     <h:panelGrid>
                                     <h3>W2</h3>
                                     <h:dataTable id="yearlyW2B" value="#{UserInfo.w2Models}" var="w2"
@@ -92,6 +95,7 @@
                                         <h:column id="col_name">
                                             <h:commandButton value="#{w2.year}" action="#{w2.onClick}"
                                                              styleClass="LinkButton"/>
+                                                            
                                         </h:column>
                                     </h:dataTable>
                                     </h:panelGrid>
