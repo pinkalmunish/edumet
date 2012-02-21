@@ -62,6 +62,7 @@
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>
+         <string v="Spring"/>
          <string v="XML"/>
       </list>
    </hash>
@@ -233,31 +234,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Jsf-api.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Jsf-impl.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Jstl.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="Mysql-connector-java-3.1.12-bin.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Richfaces-api-3.1.4.GA.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Richfaces-impl-3.1.4.GA.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Richfaces-ui-3.1.4.GA.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -274,6 +255,22 @@
          </hash>
          <hash>
             <value n="id" v="Log4j-1.2.16.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Richfaces-api-3.3.3.Final.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Richfaces-impl-3.3.3.Final.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Richfaces-impl-jsf2-3.3.3.Final.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Richfaces-ui-3.3.3.Final.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -495,6 +492,42 @@
                <value n="id" v="Log4j-1.2.16.jar"/>
                <value n="locked" v="true"/>
             </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="public_html/WEB-INF/libs/richfaces-api-3.3.3.Final.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Richfaces-api-3.3.3.Final.jar"/>
+               <value n="id" v="Richfaces-api-3.3.3.Final.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="public_html/WEB-INF/libs/richfaces-impl-3.3.3.Final.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Richfaces-impl-3.3.3.Final.jar"/>
+               <value n="id" v="Richfaces-impl-3.3.3.Final.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="public_html/WEB-INF/libs/richfaces-impl-jsf2-3.3.3.Final.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Richfaces-impl-jsf2-3.3.3.Final.jar"/>
+               <value n="id" v="Richfaces-impl-jsf2-3.3.3.Final.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="public_html/WEB-INF/libs/richfaces-ui-3.3.3.Final.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Richfaces-ui-3.3.3.Final.jar"/>
+               <value n="id" v="Richfaces-ui-3.3.3.Final.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
          </list>
       </hash>
       <list n="libraryReferences">
@@ -614,6 +647,22 @@
             <value n="id" v="Log4j-1.2.16.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Richfaces-api-3.3.3.Final.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Richfaces-impl-3.3.3.Final.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Richfaces-impl-jsf2-3.3.3.Final.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Richfaces-ui-3.3.3.Final.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
@@ -691,6 +740,56 @@
             <value n="URI" v="http://java.sun.com/jsp/jstl/functions"/>
             <value n="version" v="2.0"/>
          </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="Rich"/>
+               <value n="version" v=""/>
+            </hash>
+            <value n="name" v="Rich"/>
+            <value n="taglibURL" v="jar:file:/Users/pinkalshah/RichFaces/rich-faces-3.3.3/richfaces-ui-3.3.3.Final.jar!/META-INF/rich.taglib.xml"/>
+            <value n="URI" v="http://richfaces.org/rich"/>
+            <value n="version" v=""/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSF Compatibility Tags for Facelets"/>
+               <value n="version" v=""/>
+            </hash>
+            <value n="name" v="JSF Compatibility Tags for Facelets"/>
+            <value n="taglibURL" v="jar:file:/Users/pinkalshah/RichFaces/rich-faces-3.3.3/richfaces-ui-3.3.3.Final.jar!/META-INF/jsp.taglib.xml"/>
+            <value n="URI" v="http://java.sun.com/JSP/Page"/>
+            <value n="version" v=""/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="Richfaces"/>
+               <value n="version" v=""/>
+            </hash>
+            <value n="name" v="Richfaces"/>
+            <value n="taglibURL" v="jar:file:/Users/pinkalshah/RichFaces/rich-faces-3.3.3/richfaces-ui-3.3.3.Final.jar!/META-INF/richfaces.taglib.xml"/>
+            <value n="URI" v="http://richfaces.ajax4jsf.org/rich"/>
+            <value n="version" v=""/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="A4j"/>
+               <value n="version" v=""/>
+            </hash>
+            <value n="name" v="A4j"/>
+            <value n="taglibURL" v="jar:file:/Users/pinkalshah/RichFaces/rich-faces-3.3.3/richfaces-ui-3.3.3.Final.jar!/META-INF/a4j.taglib.xml"/>
+            <value n="URI" v="https://ajax4jsf.dev.java.net/ajax"/>
+            <value n="version" v=""/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="Ajax4jsf"/>
+               <value n="version" v=""/>
+            </hash>
+            <value n="name" v="Ajax4jsf"/>
+            <value n="taglibURL" v="jar:file:/Users/pinkalshah/RichFaces/rich-faces-3.3.3/richfaces-ui-3.3.3.Final.jar!/META-INF/ajax4jsf.taglib.xml"/>
+            <value n="URI" v="http://richfaces.org/a4j"/>
+            <value n="version" v=""/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.webapp.jsp.JspVeProjectSettings">
@@ -724,6 +823,61 @@
             <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_2.0/jsf-impl.jar!/META-INF/html_basic.tld"/>
             <value n="URI" v="http://java.sun.com/jsf/html"/>
             <value n="version" v="2.0"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSF HTML"/>
+               <value n="version" v="2.0"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSF HTML"/>
+            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_2.0/jsf-impl.jar!/META-INF/html_basic.tld"/>
+            <value n="URI" v="http://java.sun.com/jsf/html"/>
+            <value n="version" v="2.0"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="RichFaces ( Legacy URL )"/>
+               <value n="version" v="3.3.3"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="RichFaces ( Legacy URL )"/>
+            <value n="tldURL" v="jar:file:/Users/pinkalshah/RichFaces/rich-faces-3.3.3/richfaces-ui-3.3.3.Final.jar!/META-INF/richfaces.tld"/>
+            <value n="URI" v="http://richfaces.ajax4jsf.org/rich"/>
+            <value n="version" v="3.3.3"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="Ajax4jsf ( Legacy URL )"/>
+               <value n="version" v="3.3.3"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="Ajax4jsf ( Legacy URL )"/>
+            <value n="tldURL" v="jar:file:/Users/pinkalshah/RichFaces/rich-faces-3.3.3/richfaces-ui-3.3.3.Final.jar!/META-INF/a4j.tld"/>
+            <value n="URI" v="https://ajax4jsf.dev.java.net/ajax"/>
+            <value n="version" v="3.3.3"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="Ajax4Jsf"/>
+               <value n="version" v="3.3.3"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="Ajax4Jsf"/>
+            <value n="tldURL" v="jar:file:/Users/pinkalshah/RichFaces/rich-faces-3.3.3/richfaces-ui-3.3.3.Final.jar!/META-INF/ajax4jsf.tld"/>
+            <value n="URI" v="http://richfaces.org/a4j"/>
+            <value n="version" v="3.3.3"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="RichFaces"/>
+               <value n="version" v="3.3.3"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="RichFaces"/>
+            <value n="tldURL" v="jar:file:/Users/pinkalshah/RichFaces/rich-faces-3.3.3/richfaces-ui-3.3.3.Final.jar!/META-INF/rich.tld"/>
+            <value n="URI" v="http://richfaces.org/rich"/>
+            <value n="version" v="3.3.3"/>
          </hash>
       </list>
    </hash>

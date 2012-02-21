@@ -2,8 +2,28 @@
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <!-- Definition of JSF's Front Controller -->
+    <context-param>
+        <param-name>org.richfaces.SKIN</param-name>
+        <param-value>blueSky</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL</param-name>
+        <param-value>true</param-value>
+    </context-param>
+ <filter>
+        <display-name>RichFaces Filter</display-name>
+        <filter-name>richfaces</filter-name>
+        <filter-class>org.ajax4jsf.Filter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>richfaces</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+    </filter-mapping> 
     <!-- Faces Servlet -->
-    <filter>
+   <!-- <filter>
         <filter-name>JpsFilter</filter-name>
         <filter-class>oracle.security.jps.ee.http.JpsFilter</filter-class>
         <init-param>
@@ -17,16 +37,11 @@
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
-    </filter-mapping>
+    </filter-mapping> -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     </servlet>
- 
-
-  
-
- 
     <!-- Defining and mapping the RichFaces filter -->
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
@@ -50,16 +65,18 @@
         <param-name>facelets.DEVELOPMENT</param-name>
         <param-value>false</param-value>
     </context-param>
-     <context-param>
-    <param-name>javax.faces.CONFIG_FILES</param-name>
-    <param-value>/WEB-INF/ManagedBeans.xml</param-value>
-  </context-param>
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>/WEB-INF/ManagedBeans.xml</param-value>
+    </context-param>
     <error-page>
-     <exception-type>java.lang.Throwable</exception-type>
-     <location>/error.html</location>
-   </error-page>
-   <!--<security-constraint>
-   --><!--web security--><!--
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error.html</location>
+    </error-page>
+    <!--<security-constraint>
+   -->
+    <!--web security-->
+    <!--
   <web-resource-collection>
     <web-resource-name>EmployeeDashBoard.html</web-resource-name>
     <url-pattern>/EmployeeDashBoard.html</url-pattern>
