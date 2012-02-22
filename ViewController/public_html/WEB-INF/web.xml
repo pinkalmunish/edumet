@@ -3,14 +3,18 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <!-- Definition of JSF's Front Controller -->
     <context-param>
+        <param-name>org.richfaces.CONTROL_SKINNING</param-name>
+        <param-value>enable</param-value>
+    </context-param>
+    <context-param>
         <param-name>org.richfaces.SKIN</param-name>
-        <param-value>blueSky</param-value>
+        <param-value>wine</param-value>
     </context-param>
     <context-param>
         <param-name>org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL</param-name>
         <param-value>true</param-value>
     </context-param>
- <filter>
+    <filter>
         <display-name>RichFaces Filter</display-name>
         <filter-name>richfaces</filter-name>
         <filter-class>org.ajax4jsf.Filter</filter-class>
@@ -21,9 +25,9 @@
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>INCLUDE</dispatcher>
-    </filter-mapping> 
+    </filter-mapping>
     <!-- Faces Servlet -->
-   <!-- <filter>
+    <!-- <filter>
         <filter-name>JpsFilter</filter-name>
         <filter-class>oracle.security.jps.ee.http.JpsFilter</filter-class>
         <init-param>

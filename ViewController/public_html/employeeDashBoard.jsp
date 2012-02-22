@@ -8,6 +8,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/edumet.css" media="screen"/>
         <script type="text/javascript" src="scripts/accordion.js">
+ < 
         </script>
     </head>
     <body bgcolor="#E0FFFF">
@@ -17,7 +18,17 @@
                     <h3 align="center" id="schoolTitle">
                         <h:outputText value="#{UserInfo.schoolDistrict}"/>
                     </h3>
-                    <h4 align="left" style="color:maroon">Welcome <h:outputText value="#{UserInfo.firstName}"/> !</h4>
+                     
+                    <h4 align="left" style="color:maroon">
+                        Welcome
+                        <h:outputText value="#{UserInfo.firstName}"/>
+                        !
+                    </h4>
+                    <div>
+                        <p class="back" align="right">
+                            <h:commandButton value="Logout" action="#{UserInfo.logOut}" styleClass="LinkButton"></h:commandButton>
+                        </p>
+                    </div>
                     <div class="horizontalaccordion">
                         <ul>
                             <li>
@@ -58,7 +69,7 @@
                                      
                                     <br></br>
                                      
-                                    <b style="color:blue">Street:</b>
+                                    <b style="color:blue;text-align:left">Street:</b>
                                      
                                     <h:outputText value="#{UserInfo.userAddress.street1}"/>
                                      
@@ -83,15 +94,16 @@
                                     <br></br>
                                 </div>
                             </li>
+                             
                             <li>
-                            <h3>Pay Stubs</h3>
-                            <rich:calendar cellWidth="20px" cellHeight="20px">
-                            </rich:calendar>
+                                <h3>Pay Stubs</h3>
+                                <rich:calendar cellWidth="20px" cellHeight="20px" style="width:150px;height:100px"
+                                                buttonLabel="select pay day"></rich:calendar>
                             </li>
-                            </li>
+                             
                             <li>
                                 <h3>W2 Information</h3>
-                                    <h:panelGrid>
+                                <h:panelGrid>
                                     <h3>W2</h3>
                                     <h:dataTable id="yearlyW2B" value="#{UserInfo.w2Models}" var="w2"
                                                  rowClasses="list-row-odd, list-row-even" headerClass="table-header"
@@ -99,11 +111,9 @@
                                         <h:column id="col_name">
                                             <h:commandButton value="#{w2.year}" action="#{w2.onClick}"
                                                              styleClass="LinkButton"/>
-                                                            
                                         </h:column>
                                     </h:dataTable>
-                                    </h:panelGrid>
-                                  
+                                </h:panelGrid>
                             </li>
                              
                             <li>
@@ -131,11 +141,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div>
-                        <p class="back">
-                            <h:commandButton value="Logout" action="#{UserInfo.logOut}" styleClass="LinkButton"></h:commandButton>
-                        </p>
-                </div>
+                    <div></div>
                 </div>
             </h:form>
         </f:view>

@@ -20,10 +20,10 @@
                      
                     <h:inputText id="username" value="#{ForgottenPasswordPage.username}" style="field required"/>
                     <div class="submit">
-                        <h:commandButton value="Login" action="#{ForgottenPasswordPage.emailPassword}"/>
+                        <h:commandButton value="Submit" action="#{ForgottenPasswordPage.emailPassword}"/>
                     </div>
                     <div class="submit">
-                        <h:commandLink value="Login" action="loginMain.jsp"/>
+                        <h:commandLink value="Login" action="loginMain.html?faces-redirect=true"/>
                     </div>
                 </div>
             </h:form>
