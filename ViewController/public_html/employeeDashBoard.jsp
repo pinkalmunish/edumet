@@ -97,7 +97,7 @@
                              
                             <li>
                                 <h3>Pay Stubs</h3>
-                                <rich:calendar cellWidth="20px" cellHeight="20px" style="width:150px;height:100px"
+                                <rich:calendar cellWidth="20px" cellHeight="20px" style="width:200px;height:100px"
                                                 buttonLabel="select pay day"></rich:calendar>
                             </li>
                              
